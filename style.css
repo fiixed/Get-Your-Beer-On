@@ -1,0 +1,23 @@
+.jumbotron-fluid {
+  background-image: url(beertaps.jpg);
+  background-size: 100%;
+  min-height: 300px;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 4em;
+  margin: auto;
+}
+
+.display-4 {
+  font-family: fantasy;
+  color: mediumblue;
+  text-decoration: underline;
+}
+
+.lead {
+  color: mediumblue;
+}
+
+.nav {
+  float: right;
+}
