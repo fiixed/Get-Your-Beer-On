@@ -1,4 +1,5 @@
 let brewerieSearchData;
+let geoKey = config.GEO;
 
 document.addEventListener('DOMContentLoaded', () => {
     function renderBreweries(brewerieArray) {
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
         return brewerieHTML.join('');
-    };
+    }
     document.getElementById('search-form').addEventListener('submit', e => {
         e.preventDefault();
         let searchString = document.querySelector('.search-bar').value;
