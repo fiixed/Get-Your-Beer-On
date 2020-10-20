@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body style="background-color: tan">
-    <div class="container">
+    <div class="container-fluid">
       <div class="nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -15,14 +18,11 @@
         <a href="signup.html">Sign Up</a>
       </div>
       <div class="jumbotron-fluid">
-        <div class="container2">
           <h1 class="display-4">Comments</h1>
           <p class="lead">Where finding your favorite spot comes with ease.</p>
-        </div>
       </div>
-      <h2>Please provide your feedback&#33;</h2>
-    </div>
     <form action="#" method="GET">
+        <legend><h3>Please provide your feedback&#33;</h3></legend>
       <!-- <fieldset>
        <legend>Your Details:</legend>
         <label>
@@ -36,7 +36,6 @@
         </label> -->
       <!--</fieldset> -->
       <fieldset>
-        <legend>Your Review</legend>
         <p>
           <label>
             Name:
@@ -74,12 +73,13 @@
           <br />
           <textarea rows="4" cols="40" id="comments"></textarea>
         </p>
-        <label>
+        <input type="submit" value="Submit" />
           <!--<input type="checkbox" name="subscribe" checked="checked" />
           Sign me up for email updates
         </label>
         <br />
         <input type="submit" value="Submit review" /> -->
+      </div>
       </fieldset>
     </form>
   </body>
