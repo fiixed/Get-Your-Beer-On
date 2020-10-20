@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,9 +10,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link href="styles.css" rel="stylesheet" />
-    <script type="text/javascript" src="config.js"></script>
-    <script defer src="script.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/config.js"></script>
+    <script defer src="scripts/script.js"></script>
+    <script defer src="scripts/geo.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -40,47 +41,6 @@
       </div>
     </div>
   </body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Brew Connection</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-  </head>
-  <body style="background-color: tan">
-    <div class="container-fluid">
-      <div class="nav">
-              <a href="index.html">Home</a>
-              <a href="about.html">About</a>
-              <a href="comment.html">Comments</a>
-              <a href="signup.html">Sign Up</a>
-      </div>
-      <div class="jumbotron-fluid">
-          <h1 class="display-4">The Brew Connection</h1>
-          <p class="lead">Where finding your favorite spot comes with ease.</p>
-      </div>
-      
-      <div class="middle">
-      <!--The form element below: Its value is the URL for the page on the server 
-        that will receive the info in the form when it's submitted-->
-      <form action="#"> 
-        <p class="brews">
-          <h3>Please choose below to locate brews close to you!</h3> 
-        <input type="checkbox" name="brews" value="breweries" checked="checked" /> Breweries
-        <input type="checkbox" name="brews" value="cideries" /> Cideries
-        <input type="checkbox" name="brews" value="brewpubs" /> Brewpubs
-        <input type="checkbox" name="brews" value="bottleshops" /> Bottleshops
-      </p> 
-      </form>
-    </div>
-    </div>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-  </body>
 </html>
+
 
