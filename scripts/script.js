@@ -1,5 +1,5 @@
 let brewerieSearchData;
-let geoKey = config.GEO;
+
 
 document.addEventListener('DOMContentLoaded', () => {
     function renderBreweries(brewerieArray) {
