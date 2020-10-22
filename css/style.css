@@ -74,13 +74,6 @@ body {
   margin: 10px;
 }
 
-#sign-up {
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 30px;
-}
-
 h3 {
   font-family: fantasy;
   color: mediumblue;
@@ -102,6 +95,10 @@ h3 {
 }
 
 #comments {
+  margin: 100px;
+}
+
+#sign-up {
   margin: 100px;
 }
 
