@@ -30,7 +30,8 @@ function initMap() {
           myLat = pos.lat;
           myLng = pos.lng;
           zipCode = await getZipCode(myLat, myLng);
-          console.log(zipCode);
+          infoWindow.setContent(`${zipCode}`);
+          
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -56,7 +57,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 const getZipCode = async (lat, lon) => {
   try {
-    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM`);
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=apiKey`);
+    console.log(response);
     let postalCode = response.data.results[0].address_components.find(function (component) {
       return component.types[0] == "postal_code";
   });
