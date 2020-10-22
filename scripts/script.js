@@ -45,10 +45,9 @@ new Promise((resolve, reject) => {
   node.addEventListener('animationend', handleAnimationEnd, {once: true});
 });
 
-    // elements that are delayed
-const element = document.getElementById('lead');
-element.style.setProperty('--animate-duration', '1.5s');
-
-    // end elements that are delayed
+    // delayed elements
+        const element = document.getElementById('lead');
+        element.style.setProperty('--animate-duration', '1.5s');
+    // end delayed elements
 
 // end animation
