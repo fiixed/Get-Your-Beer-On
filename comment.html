@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
     <!-- style -->
     <link
     rel="stylesheet"
@@ -16,22 +14,45 @@
     />
     <link href="css/style.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <!-- end style -->
 
   </head>
-  <body style="background-color: tan">
-    <div class="container-fluid">
-      <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="comment.html">Comments</a>
-        <a href="signup.html">Sign Up</a>
-      </div>
-      <div class="jumbotron-fluid">
-          <h1 class="display-4">Comments</h1>
-          <p class="lead">Where finding your favorite spot comes with ease.</p>
-      </div>
+  <body>
+
+
+            <!-- header -->
+            <div id="header" class="jumbotron-fluid">
+              <nav class="navbar navbar-expand-lg navbar-light">
+                <div id="menu" class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="about.html">ABOUT</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="comment.html">COMMENTS</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="signup.html">SIGN UP</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <h1 id="title" class="animate__animated animate__backInDown">Comments</h1>
+              <p id="lead" class="animate__animated animate__backInDown">Where finding your favorite spot comes with ease.</p>
+            </div>
+            <!-- end header -->
+    
+    <!-- form -->
+    <div id="comments" class="animate__animated animate__fadeInLeft">
+
+    <div id="feedback">
     <form action="#" method="GET">
         <legend><h3>Please provide your feedback&#33;</h3></legend>
       <!-- <fieldset>
@@ -93,6 +114,27 @@
       </div>
       </fieldset>
     </form>
+  </div>
+
+</div>
+    <!-- end form -->
+
+  <!-- footer -->
+  <div id="footer" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <a href="index.html"><h1 class="foot-title">The Brew Connection</h1>
+      </a>
+      <div class="social">
+        <a href="https://twitter.com/?lang=en"><img src="https://img.icons8.com/dotty/80/000000/twitter.png" alt="twitter"/>
+        </a>
+        <a href="https://www.instagram.com/?hl=en"><img src="https://img.icons8.com/dotty/80/000000/instagram-new.png" alt="instagram"/>
+        </a>
+        <a href="https://www.facebook.com/"><img src="https://img.icons8.com/dotty/80/000000/facebook-new.png" alt="facebook"/>
+        </a>
+    </div>
+    <div class="copyright"> ©2020 The Brew Connection. All Rights Reserved</div>
+  </div>
+  <!-- end footer -->
 
     <!-- boot JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,11 +1,31 @@
-.jumbotron-fluid {
+html {
+  max-width: 100%;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 50px;
+  background-repeat: no-repeat;
+  background-image: url(/images/wheat.jpeg);
+}
+
+body {
+  background-color: tan;
+}
+
+#home-search {
+  margin: 10px;
+}
+
+#header {
   background-image: url(/images/beertaps.jpg);
   background-size: 100%;
   min-height: 300px;
   background-repeat: no-repeat;
   text-align: center;
-  padding-top: 8em;
-  margin: 0em;
+}
+
+#menu {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .display-4 {
@@ -14,14 +34,75 @@
   text-decoration: underline;
 }
 
-.lead {
-  color: mediumblue;
-}
-
-.nav {
-  float: right;
+#about-main {
+  margin: 100px;
 }
 
 .container-fluid {
   margin: 2em;
 }
+
+#footer{
+  background-color: #814D30;
+}
+
+.foot-title {
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  color: mediumblue;
+  text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.copyright {
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  font-family: fantasy;
+  color: mediumblue;
+  text-decoration: underline;
+  padding-top: 15px;
+}
+
+#feedback {
+  margin: 10px;
+}
+
+#sign-up {
+  margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-family: fantasy;
+  color: mediumblue;
+  text-decoration: underline;
+}
+
+
+
+/* animation */
+
+#title {
+  font-family: fantasy;
+  color: mediumblue;
+  text-decoration: underline;
+}
+
+#lead {
+  color: mediumblue;
+}
+
+#comments {
+  margin: 100px;
+}
+
+/* end animation */
