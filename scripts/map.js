@@ -3,6 +3,7 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 let map, infoWindow, myLat, myLng, zipCode, city, state, breweries;
+let markers = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -41,27 +42,27 @@ function initMap() {
           breweries = await getBreweries(zipCode, city, state);
 
           var infowindow =  new google.maps.InfoWindow({});
-          var marker, count;
-          for (count = 0; count < breweries.length; count++) {
-            marker = new google.maps.Marker({
-            position: new google.maps.LatLng(breweries[count].latitude, breweries[count].longitude),
-            animation: google.maps.Animation.DROP,
-          map: map,
-          title: breweries[count].name
-          });
-          google.maps.event.addListener(marker, 'click', ((marker, count) => {
+          drop(breweries);
+          // for (let i = 0; i < breweries.length; i++) {
+          //   marker = new google.maps.Marker({
+          //   position: new google.maps.LatLng(breweries[i].latitude, breweries[i].longitude),
+          //   animation: google.maps.Animation.DROP,
+          // map: map,
+          // title: breweries[i].name
+          // });
+          google.maps.event.addListener(markers, 'click', ((marker, i) => {
           return function () {
             const contentWindow = `
-            <h3>${breweries[count].name}</h3>
-            <h5>${breweries[count].brewery_type}</h5>
-            <p>${breweries[count].street}</p>
+            <h3>${breweries[i].name}</h3>
+            <h5>${breweries[i].brewery_type}</h5>
+            <p>${breweries[i].street}</p>
             `;
             infowindow.setContent(contentWindow);
            
             infowindow.open(map, marker);
       };
-    })(marker, count));
-  }
+    })(marker, i));
+  // }
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -138,5 +139,31 @@ const getBreweries = async (postal, city, state) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const drop = (breweries) => {
+  for (let i = 0; i < breweries.length; i++) {
+    addMarkerWithTimeout(breweries[i], i * 200);
+  }
+};
+
+const addMarkerWithTimeout = (brewary, timeout) => {
+  window.setTimeout(() => {
+    markers.push(
+      new google.maps.Marker({
+        position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: brewary.name
+      })
+    );
+  }, timeout);
+};
+
+const clearMarkers = () => {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
 };
 
