@@ -2,7 +2,7 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode, city, breweries;
+let map, infoWindow, myLat, myLng, zipCode, city, state, breweries;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -24,14 +24,15 @@ function initMap() {
             lng: position.coords.longitude,
           };
           infoWindow.setPosition(pos);
-          infoWindow.setContent("Location found.");
+          infoWindow.setContent(":)");
           infoWindow.open(map);
           map.setCenter(pos);
           myLat = pos.lat;
           myLng = pos.lng;
           zipCode = await getZipCode(myLat, myLng);
           city = await getCity(myLat, myLng);
-          breweries = await getBreweries(zipCode, city);
+          state = await getState(myLat, myLng);
+          breweries = await getBreweries(zipCode, city, state);
 
           var infowindow =  new google.maps.InfoWindow({});
           var marker, count;
@@ -43,7 +44,12 @@ function initMap() {
           });
           google.maps.event.addListener(marker, 'click', ((marker, count) => {
           return function () {
-            infowindow.setContent(breweries[count].name, breweries[count].street);
+            const contentWindow = `
+            <h3>${breweries[count].name}</h3>
+            <h5>${breweries[count].brewery_type}</h5>
+            <p>${breweries[count].street}</p>
+            `
+            infowindow.setContent(contentWindow);
            
             infowindow.open(map, marker);
       };
@@ -97,14 +103,30 @@ const getCity = async (lat, lon) => {
   }
 };
 
-const getBreweries = async (postal, city) => {
+const getState = async (lat, lon) => {
+  try {
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM`);
+    let state = response.data.results[0].address_components.find(function (component) {
+      return component.types[0] == "administrative_area_level_1";
+  });
+    return state.long_name;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBreweries = async (postal, city, state) => {
   try {
     const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
     if (response.data.length == 0) {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
-      console.log(response.data);
+      if (response.data.length == 0) {
+        const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
+        return response.data;
+      }
       return response.data;
     }
+    
     return response.data;
   } catch (error) {
     console.log(error);
