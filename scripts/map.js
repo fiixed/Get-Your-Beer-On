@@ -48,7 +48,7 @@ function initMap() {
             <h3>${breweries[count].name}</h3>
             <h5>${breweries[count].brewery_type}</h5>
             <p>${breweries[count].street}</p>
-            `
+            `;
             infowindow.setContent(contentWindow);
            
             infowindow.open(map, marker);
