@@ -159,22 +159,21 @@ const addMarkerWithTimeout = (brewary, timeout) => {
         title: brewary.name
       }),
       
-      marker.addListener("click", () => {
-        return function () {
-          var infowindow =  new google.maps.InfoWindow({});
-                  const contentWindow = `
-                  <h3>${brewary.name}</h3>
-                  <h5>${brewary.brewery_type}</h5>
-                  <p>${brewary.street}</p>
-                  `;
-                  infowindow.setContent(contentWindow);
-                 
-                  infowindow.open(map, marker);
-            };
-      }),
+      google.maps.event.addListener(marker, 'click', ((marker) => {
+              return function () {
+                let infowindow =  new google.maps.InfoWindow({});
+                const contentWindow = `
+                <h3>${brewary.name}</h3>
+                <h5>${brewary.brewery_type}</h5>
+                <p>${brewary.street}</p>
+                `;
+                infowindow.setContent(contentWindow);
+               
+                infowindow.open(map, marker);
+          };
+        })(marker)),
     );
   }, timeout);
-  
 };
 
 const clearMarkers = () => {
