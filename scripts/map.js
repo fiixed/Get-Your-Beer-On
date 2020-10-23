@@ -2,7 +2,7 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode, city, state, breweries;
+let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
 let markers = [];
 
 function initMap() {
@@ -50,18 +50,19 @@ function initMap() {
           // map: map,
           // title: breweries[i].name
           // });
-          google.maps.event.addListener(markers, 'click', ((marker, i) => {
-          return function () {
-            const contentWindow = `
-            <h3>${breweries[i].name}</h3>
-            <h5>${breweries[i].brewery_type}</h5>
-            <p>${breweries[i].street}</p>
-            `;
-            infowindow.setContent(contentWindow);
+          
+    //       google.maps.event.addListener(marker, 'click', ((marker, i) => {
+    //       return function () {
+    //         const contentWindow = `
+    //         <h3>${breweries[i].name}</h3>
+    //         <h5>${breweries[i].brewery_type}</h5>
+    //         <p>${breweries[i].street}</p>
+    //         `;
+    //         infowindow.setContent(contentWindow);
            
-            infowindow.open(map, marker);
-      };
-    })(marker, i));
+    //         infowindow.open(map, marker);
+    //   };
+    // })(marker, i));
   // }
         },
         () => {
@@ -142,22 +143,29 @@ const getBreweries = async (postal, city, state) => {
 };
 
 const drop = (breweries) => {
+  clearMarkers();
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 200);
   }
 };
 
 const addMarkerWithTimeout = (brewary, timeout) => {
+  var infowindow =  new google.maps.InfoWindow({});
   window.setTimeout(() => {
     markers.push(
-      new google.maps.Marker({
+      marker = new google.maps.Marker({
         position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
         map: map,
         animation: google.maps.Animation.DROP,
         title: brewary.name
-      })
+      }),
+      // NOT WORKING
+      marker.addEventListener('click', function() {
+       alert('hi'); 
+      }),
     );
   }, timeout);
+  
 };
 
 const clearMarkers = () => {
