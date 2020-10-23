@@ -9,8 +9,9 @@ let firstTime = true;
 function initMap() {
   
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 40.7831, lng: -73.9712 },
-    zoom: 13,
+    center: { lat: 0, lng: 0 },
+    zoom: 1,
+    minZoom: 1
   });
   //infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
@@ -32,40 +33,15 @@ function initMap() {
           map: map,
           icon: iconBase + 'icon50.png'
         });
-          //infoWindow.setPosition(pos);
-          //infoWindow.setContent(":)");
-          //infoWindow.open(map);
           map.setCenter(pos);
+          map.setZoom(12);
           myLat = pos.lat;
           myLng = pos.lng;
           zipCode = await getZipCode(myLat, myLng);
           city = await getCity(myLat, myLng);
           state = await getState(myLat, myLng);
           breweries = await getBreweries(zipCode, city, state);
-
-          
           drop(breweries);
-          // for (let i = 0; i < breweries.length; i++) {
-          //   marker = new google.maps.Marker({
-          //   position: new google.maps.LatLng(breweries[i].latitude, breweries[i].longitude),
-          //   animation: google.maps.Animation.DROP,
-          // map: map,
-          // title: breweries[i].name
-          // });
-          
-    //       google.maps.event.addListener(marker, 'click', ((marker, i) => {
-    //       return function () {
-    //         const contentWindow = `
-    //         <h3>${breweries[i].name}</h3>
-    //         <h5>${breweries[i].brewery_type}</h5>
-    //         <p>${breweries[i].street}</p>
-    //         `;
-    //         infowindow.setContent(contentWindow);
-           
-    //         infowindow.open(map, marker);
-    //   };
-    // })(marker, i));
-  // }
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
