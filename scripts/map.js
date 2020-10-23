@@ -4,8 +4,10 @@
 // locate you.
 let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
 let markers = [];
+let firstTime = true;
 
 function initMap() {
+  
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 40.7831, lng: -73.9712 },
     zoom: 13,
@@ -164,8 +166,10 @@ const addMarkerWithTimeout = (brewary, timeout) => {
                 let infowindow =  new google.maps.InfoWindow({});
                 const contentWindow = `
                 <h3>${brewary.name}</h3>
-                <h5>${brewary.brewery_type}</h5>
+                <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
                 <p>${brewary.street}</p>
+                <p>${brewary.phone}</p>
+                <a href=${brewary.website_url} target="_blank">${brewary.website_url}</a>
                 `;
                 infowindow.setContent(contentWindow);
                
