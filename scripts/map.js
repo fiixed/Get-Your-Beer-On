@@ -33,7 +33,22 @@ function initMap() {
           city = await getCity(myLat, myLng);
           breweries = await getBreweries(zipCode, city);
 
-          
+          var infowindow =  new google.maps.InfoWindow({});
+          var marker, count;
+          for (count = 0; count < breweries.length; count++) {
+            marker = new google.maps.Marker({
+            position: new google.maps.LatLng(breweries[count].latitude, breweries[count].longitude),
+          map: map,
+          title: breweries[count].name
+          });
+          google.maps.event.addListener(marker, 'click', ((marker, count) => {
+          return function () {
+            infowindow.setContent(breweries[count].name, breweries[count].street);
+           
+            infowindow.open(map, marker);
+      };
+    })(marker, count));
+  }
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -46,6 +61,7 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
+  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
