@@ -41,7 +41,7 @@ function initMap() {
           state = await getState(myLat, myLng);
           breweries = await getBreweries(zipCode, city, state);
 
-          var infowindow =  new google.maps.InfoWindow({});
+          
           drop(breweries);
           // for (let i = 0; i < breweries.length; i++) {
           //   marker = new google.maps.Marker({
@@ -150,7 +150,6 @@ const drop = (breweries) => {
 };
 
 const addMarkerWithTimeout = (brewary, timeout) => {
-  var infowindow =  new google.maps.InfoWindow({});
   window.setTimeout(() => {
     markers.push(
       marker = new google.maps.Marker({
@@ -159,9 +158,19 @@ const addMarkerWithTimeout = (brewary, timeout) => {
         animation: google.maps.Animation.DROP,
         title: brewary.name
       }),
-      // NOT WORKING
-      marker.addEventListener('click', function() {
-       alert('hi'); 
+      
+      marker.addListener("click", () => {
+        return function () {
+          var infowindow =  new google.maps.InfoWindow({});
+                  const contentWindow = `
+                  <h3>${brewary.name}</h3>
+                  <h5>${brewary.brewery_type}</h5>
+                  <p>${brewary.street}</p>
+                  `;
+                  infowindow.setContent(contentWindow);
+                 
+                  infowindow.open(map, marker);
+            };
       }),
     );
   }, timeout);
