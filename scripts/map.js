@@ -57,7 +57,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 const getZipCode = async (lat, lon) => {
   try {
-    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=apiKey`);
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=apiKey=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM`);
     console.log(response);
     let postalCode = response.data.results[0].address_components.find(function (component) {
       return component.types[0] == "postal_code";
