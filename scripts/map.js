@@ -9,7 +9,7 @@ function initMap() {
     center: { lat: 40.7831, lng: -73.9712 },
     zoom: 13,
   });
-  infoWindow = new google.maps.InfoWindow();
+  //infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
   locationButton.textContent = "My Location";
   locationButton.classList.add("custom-map-control-button");
@@ -23,9 +23,15 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          infoWindow.setPosition(pos);
-          infoWindow.setContent(":)");
-          infoWindow.open(map);
+          var iconBase = 'http://maps.google.com/mapfiles/kml/pal4/';
+          var you = new google.maps.Marker({
+          position: pos,
+          map: map,
+          icon: iconBase + 'icon50.png'
+        });
+          //infoWindow.setPosition(pos);
+          //infoWindow.setContent(":)");
+          //infoWindow.open(map);
           map.setCenter(pos);
           myLat = pos.lat;
           myLng = pos.lng;
@@ -39,6 +45,7 @@ function initMap() {
           for (count = 0; count < breweries.length; count++) {
             marker = new google.maps.Marker({
             position: new google.maps.LatLng(breweries[count].latitude, breweries[count].longitude),
+            animation: google.maps.Animation.DROP,
           map: map,
           title: breweries[count].name
           });
