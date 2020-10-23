@@ -2,7 +2,7 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode;
+let map, infoWindow, myLat, myLng, zipCode, city, breweries;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -30,7 +30,9 @@ function initMap() {
           myLat = pos.lat;
           myLng = pos.lng;
           zipCode = await getZipCode(myLat, myLng);
-          infoWindow.setContent(`${zipCode}`);
+          city = await getCity(myLat, myLng);
+          breweries = await getBreweries(zipCode, city);
+
           
         },
         () => {
@@ -57,12 +59,37 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 const getZipCode = async (lat, lon) => {
   try {
-    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=apiKey`);
-    console.log(response);
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM`);
     let postalCode = response.data.results[0].address_components.find(function (component) {
       return component.types[0] == "postal_code";
   });
     return postalCode.long_name;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getCity = async (lat, lon) => {
+  try {
+    const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat.toString()},${lon.toString()}&key=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM`);
+    let city = response.data.results[0].address_components.find(function (component) {
+      return component.types[0] == "locality";
+  });
+    return city.long_name;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBreweries = async (postal, city) => {
+  try {
+    const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
+    if (response.data.length == 0) {
+      const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
+      console.log(response.data);
+      return response.data;
+    }
+    return response.data;
   } catch (error) {
     console.log(error);
   }
