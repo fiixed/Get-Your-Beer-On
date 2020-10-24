@@ -12,6 +12,11 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <div id="floating-panel">
+      <input onclick="clearMarkers();" type="button" value="Hide Markers" />
+      <input onclick="showMarkers();" type="button" value="Show All Markers" />
+      <input onclick="deleteMarkers();" type="button" value="Delete Markers" />
+    </div>
     <div id="map"></div>
   </body>
 </html>

@@ -2,8 +2,8 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
-let markers = [];
+var map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
+var markers = [];
 let firstTime = true;
 
 function initMap() {
@@ -121,7 +121,7 @@ const getBreweries = async (postal, city, state) => {
 };
 
 const drop = (breweries) => {
-  
+  doClearMarkers();
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 200);
   }
@@ -155,6 +155,24 @@ const addMarkerWithTimeout = (brewary, timeout) => {
     );
   }, timeout);
 };
+
+function doClearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].j.map = null;
+    markers[i].map = null;
+    // marker.setMap(null); <= Won't work. ".setMap() is not a function"
+    //the above won't work because `marker` is not defined.
+    //instead, reference the marker by its index in the array:
+
+    markers[i].setMap(null);
+  }
+  markers = [];
+}
+
+
+
+
+
 
 
 
