@@ -121,7 +121,7 @@ const getBreweries = async (postal, city, state) => {
 };
 
 const drop = (breweries) => {
-  doClearMarkers();
+  deleteMarkers();
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 200);
   }
@@ -157,14 +157,36 @@ const addMarkerWithTimeout = (brewary, timeout) => {
   }, timeout);
 };
 
-function doClearMarkers() {
-  for (var i = 0; i < markers.length; i++) {
+// function doClearMarkers() {
+//   for (var i = 0; i < markers.length; i++) {
 
-    markers[i].setMap(null);
+//     markers[i].setMap(null);
+//   }
+//   markers = [];
+// }
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
   }
-  markers = [];
 }
 
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
 
 
 
