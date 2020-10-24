@@ -4,7 +4,6 @@
 // locate you.
 let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
 let markers = [];
-let firstTime = true;
 
 function initMap() {
   
@@ -47,14 +46,11 @@ function initMap() {
           handleLocationError(true, infoWindow, map.getCenter());
         }
       );
-      
-        
     } else {
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -113,7 +109,6 @@ const getBreweries = async (postal, city, state) => {
       }
       return response.data;
     }
-    
     return response.data;
   } catch (error) {
     console.log(error);
