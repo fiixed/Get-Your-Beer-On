@@ -129,7 +129,7 @@ const drop = (breweries) => {
 
 const addMarkerWithTimeout = (brewary, timeout) => {
   window.setTimeout(() => {
-    markers.push(
+    // markers.push(
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
         map: map,
@@ -152,17 +152,13 @@ const addMarkerWithTimeout = (brewary, timeout) => {
                 infowindow.open(map, marker);
           };
         })(marker)),
-    );
+    
+    markers.push(marker);
   }, timeout);
 };
 
 function doClearMarkers() {
   for (var i = 0; i < markers.length; i++) {
-    markers[i].j.map = null;
-    markers[i].map = null;
-    // marker.setMap(null); <= Won't work. ".setMap() is not a function"
-    //the above won't work because `marker` is not defined.
-    //instead, reference the marker by its index in the array:
 
     markers[i].setMap(null);
   }
