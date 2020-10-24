@@ -121,7 +121,7 @@ const getBreweries = async (postal, city, state) => {
 };
 
 const drop = (breweries) => {
-  clearMarkers();
+  
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 200);
   }
@@ -156,11 +156,5 @@ const addMarkerWithTimeout = (brewary, timeout) => {
   }, timeout);
 };
 
-const clearMarkers = () => {
-  for (let i = 0; i < markers.length; i++) {
-   
-    markers[i] = null;
-  }
-  markers = [];
-};
+
 
