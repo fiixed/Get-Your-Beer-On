@@ -129,12 +129,13 @@ const drop = (breweries) => {
 
 const addMarkerWithTimeout = (brewary, timeout) => {
   window.setTimeout(() => {
-    // markers.push(
+    var iconBase = 'http://maps.google.com/mapfiles/kml/paddle/';
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
         map: map,
         animation: google.maps.Animation.DROP,
-        title: brewary.name
+        title: brewary.name,
+        icon: iconBase + setIcon(brewary.brewery_type)
       }),
       
       google.maps.event.addListener(marker, 'click', ((marker) => {
@@ -156,14 +157,6 @@ const addMarkerWithTimeout = (brewary, timeout) => {
     markers.push(marker);
   }, timeout);
 };
-
-// function doClearMarkers() {
-//   for (var i = 0; i < markers.length; i++) {
-
-//     markers[i].setMap(null);
-//   }
-//   markers = [];
-// }
 
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
@@ -188,7 +181,39 @@ function deleteMarkers() {
   markers = [];
 }
 
-
+function setIcon(type) {
+  let image = '';
+  switch (type) {
+    case 'micro':
+      image = 'red-circle.png';
+      break;
+    case 'regional':
+      image = 'blu-circle.png';
+      break;
+    case 'brewpub':
+      image = 'grn-circle.png';
+      break;
+    case 'large':
+      image = 'ltblu-circle.png';
+      break;
+    case 'planning':
+      image = 'pink-circle.png';
+      break;
+    case 'bar':
+      image = 'ylw-circle.png';
+      break;
+    case 'contract':
+      image = 'purple-circle.png';
+      break;
+    case 'proprietor':
+      image = 'wht-circle.png';
+      break;
+    default:
+      image = 'orange-circle.png';
+      break;
+  }
+  return image;
+}
 
 
 
