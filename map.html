@@ -46,7 +46,43 @@
   </head>
   <body>
     <div id="map"></div>
-
+    <div class="sidenav">
+      <div class="container">
+        <button type="submit" id="location">Find Me</button>
+        <hr />
+        <label for="">Search By:</label><br />
+        <input type="text" name="zip" id="zip" placeholder="Enter Zip" />
+        <button type="submit" onclick="getBreweriesByZip();">Zip Code</button>
+        <input type="text" name="city" id="city" placeholder="Enter City" />
+        <button type="submit" onclick="getBreweriesByCity();">City</button>
+        <input type="text" name="state" id="state" placeholder="Enter State" />
+        <button type="submit" onclick="getBreweriesByState();">State</button>
+        <br />
+        <hr />
+        <label for="">Filter By:</label><br />
+        <input type="checkbox" id="micro" name="micro" value="micro" />
+        <label for="micro">Micro</label><br />
+        <input type="checkbox" id="regional" name="regional" value="regional" />
+        <label for="regional">Regional</label><br />
+        <input type="checkbox" id="brewpub" name="brewpub" value="brewpub" />
+        <label for="brewpub">Brewpub</label><br />
+        <input type="checkbox" id="large" name="large" value="large" />
+        <label for="large">Large</label><br />
+        <input type="checkbox" id="planning" name="planning" value="planning" />
+        <label for="planning">Planning</label><br />
+        <input type="checkbox" id="bar" name="bar" value="bar" />
+        <label for="bar">Bar</label><br />
+        <input type="checkbox" id="contract" name="contract" value="contract" />
+        <label for="contract">Contract</label><br />
+        <input
+          type="checkbox"
+          id="proprietor"
+          name="proprietor"
+          value="proprietor"
+        />
+        <label for="proprietor">Proprietor</label><br />
+      </div>
+    </div>
     <!-- map nav -->
     <!-- <div class="fixed-top">
       <div class="collapse" id="navbarToggleExternalContent">
@@ -72,7 +108,7 @@
     <!-- end map nav -->
 
     <!-- map -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
     <!-- end map -->
 
     <!-- boot JS -->

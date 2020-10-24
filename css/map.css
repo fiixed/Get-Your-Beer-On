@@ -1,7 +1,25 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+
+/* Style page content */
 #map {
   height: 100%;
+  width: 80%;
+  padding: 0px 10px;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 20%; 
+  min-width: 150px;/* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #fff; /* Grey */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
 }
 
 /* Optional: Makes the sample page fill the window. */
