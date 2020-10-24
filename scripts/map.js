@@ -137,10 +137,10 @@ const addMarkerWithTimeout = (brewary, timeout) => {
         title: brewary.name,
         icon: iconBase + setIcon(brewary.brewery_type)
       }),
-      
+      infowindow =  new google.maps.InfoWindow({});
       google.maps.event.addListener(marker, 'click', ((marker) => {
               return function () {
-                let infowindow =  new google.maps.InfoWindow({});
+                
                 const contentWindow = `
                 <h3>${brewary.name}</h3>
                 <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
