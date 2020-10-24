@@ -1,0 +1,57 @@
+let beerSearchData, cardContainer;
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('search-form').addEventListener('submit', async e => {
+        e.preventDefault();
+        let searchString = document.querySelector('.search-bar').value;
+        let urlEncodedSearchString = encodeURIComponent(searchString);
+        beerSearchData = await getBeers(urlEncodedSearchString);
+        beerSearchData.forEach((beer) => {
+            createBeerCard(beer);
+        });
+        initListOfBeers();
+    });
+});
+
+async function getBeers(searchValue) {
+    const response = await axios.get(`https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${searchValue}&facet=style_name&facet=cat_name&facet=name_breweries&facet=country`)
+    return await response.data.records;
+};
+
+getBeers('dog').then(result => console.log(result))
+
+let createBeerCard = (beer) => {
+    let cardContainer = document.getElementById('card-container');
+    let card = document.createElement('div');
+    card.className = 'card shadow cursor-pointer';
+
+    let cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+
+    let title = document.createElement('h5');
+    title.innerText = beer.fields.name;
+    title.className = 'card-title';
+
+    let style = document.createElement('p');
+    style.innerText = beer.fields.style_name;
+    style.className = '';
+
+
+    cardBody.appendChild(title);
+    cardBody.appendChild(style);
+    card.appendChild(cardBody);
+    cardContainer.appendChild(card);
+
+}
+
+let initListOfBeers = () => {
+    if (cardContainer) {
+        document.getElementById('card-container').replaceWith(cardContainer);
+        return;
+    }
+
+    cardContainer = document.getElementById('card-container');
+    beerSearchData.forEach((beer) => {
+        createTaskCard(beer);
+    });
+};
