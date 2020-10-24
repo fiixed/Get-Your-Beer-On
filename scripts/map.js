@@ -2,8 +2,8 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
-let markers = [];
+var map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
+var markers = [];
 let firstTime = true;
 
 function initMap() {
@@ -121,7 +121,7 @@ const getBreweries = async (postal, city, state) => {
 };
 
 const drop = (breweries) => {
-  clearMarkers();
+  deleteMarkers();
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 200);
   }
@@ -129,22 +129,23 @@ const drop = (breweries) => {
 
 const addMarkerWithTimeout = (brewary, timeout) => {
   window.setTimeout(() => {
-    markers.push(
+    var iconBase = 'http://maps.google.com/mapfiles/kml/paddle/';
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
         map: map,
         animation: google.maps.Animation.DROP,
-        title: brewary.name
+        title: brewary.name,
+        icon: iconBase + setIcon(brewary.brewery_type)
       }),
-      
+      infowindow =  new google.maps.InfoWindow({});
       google.maps.event.addListener(marker, 'click', ((marker) => {
               return function () {
-                let infowindow =  new google.maps.InfoWindow({});
+                
                 const contentWindow = `
                 <h3>${brewary.name}</h3>
                 <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
                 <p>${brewary.street}</p>
-                <p>${brewary.phone}</p>
+                <p>${formatPhoneNumber(brewary.phone)}</p>
                 <a href=${brewary.website_url} target="_blank">${brewary.website_url}</a>
                 `;
                 infowindow.setContent(contentWindow);
@@ -152,15 +153,83 @@ const addMarkerWithTimeout = (brewary, timeout) => {
                 infowindow.open(map, marker);
           };
         })(marker)),
-    );
+    
+    markers.push(marker);
   }, timeout);
 };
 
-const clearMarkers = () => {
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
   for (let i = 0; i < markers.length; i++) {
-   
-    markers[i] = null;
+    markers[i].setMap(map);
   }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
   markers = [];
+}
+
+function setIcon(type) {
+  let image = '';
+  switch (type) {
+    case 'micro':
+      image = 'wht-circle.png';
+      break;
+    case 'regional':
+      image = 'blu-circle.png';
+      break;
+    case 'brewpub':
+      image = 'grn-circle.png';
+      break;
+    case 'large':
+      image = 'ltblu-circle.png';
+      break;
+    case 'planning':
+      image = 'pink-circle.png';
+      break;
+    case 'bar':
+      image = 'ylw-circle.png';
+      break;
+    case 'contract':
+      image = 'purple-circle.png';
+      break;
+    case 'proprietor':
+      image = 'red-circle.png';
+      break;
+    default:
+      image = 'orange-circle.png';
+      break;
+  }
+  return image;
+}
+
+let formatPhoneNumber = (str) => {
+  //Filter only numbers from the input
+  let cleaned = ('' + str).replace(/\D/g, '');
+  
+  //Check if the input is of correct length
+  let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+  }
+
+  return null;
 };
+
+
+
+
 
