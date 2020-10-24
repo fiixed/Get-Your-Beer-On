@@ -46,7 +46,16 @@
   </head>
   <body>
     <div id="map"></div>
-
+    <div class="sidenav">
+      <div class="container">
+        <input type="text" name="zip" id="zip" placeholder="Enter Zip" />
+        <button type="submit" onclick="getBreweriesByZip();">Zip Code</button>
+        <input type="text" name="city" id="city" placeholder="Enter City" />
+        <button type="submit" onclick="getBreweriesByCity();">City</button>
+        <input type="text" name="state" id="state" placeholder="Enter State" />
+        <button type="submit" onclick="getBreweriesByState();">State</button>
+      </div>
+    </div>
     <!-- map nav -->
     <!-- <div class="fixed-top">
       <div class="collapse" id="navbarToggleExternalContent">
@@ -72,7 +81,7 @@
     <!-- end map nav -->
 
     <!-- map -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
     <!-- end map -->
 
     <!-- boot JS -->

@@ -17,7 +17,9 @@ function initMap() {
   const locationButton = document.createElement("button");
   locationButton.textContent = "My Location";
   locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  //map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  let container = document.querySelector('.container');
+  container.appendChild(locationButton);
   locationButton.addEventListener("click", () => {
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -119,6 +121,71 @@ const getBreweries = async (postal, city, state) => {
     console.log(error);
   }
 };
+
+const getBreweriesByZip = async () => {
+  var postal_code = document.getElementById("zip").value.toLowerCase();
+
+  var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': postal_code }, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      map.setZoom(13);
+		} else {
+			alert("Could not find location: " + location);
+		}
+  });
+  let postal = postal_code;
+  try {
+      const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
+      
+      drop(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBreweriesByCity = async () => {
+  var city = document.getElementById("city").value.toLowerCase();
+
+  var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': city }, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      map.setZoom(11);
+		} else {
+			alert("Could not find location: " + location);
+		}
+	});
+  try {
+      const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
+      
+    drop(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBreweriesByState = async () => {
+  var state = document.getElementById("state").value.toLowerCase();
+
+  var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': state }, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      map.setZoom(6);
+		} else {
+			alert("Could not find location: " + location);
+		}
+	});
+  try {
+        const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
+        drop(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 
 const drop = (breweries) => {
   deleteMarkers();
