@@ -11,10 +11,9 @@
     <link rel="manifest" href="images/favicon_io/site.webmanifest">
     
 
-    <script type="text/javascript" src="scripts/config.js"></script>
-    <script defer src="scripts/script.js"></script>
-    <script defer src="scripts/geo.js"></script>
-    <script defer src="scripts/map.js"></script>
+    <script defer src="./scripts/script.js"></script>
+    <script defer src="./scripts/map.js"></script>
+    <script defer src="./scripts/findBeer.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- style -->
@@ -23,7 +22,6 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
     crossorigin="anonymous"/>
     <link href="css/style.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -51,8 +49,18 @@
       <!-- end header -->
 
         <!-- main content -->
-        <div class="md-form mt-0">
-            <input class="form-control" type="text" placeholder="Search for a beer..." aria-label="Search">
+        <div id="home-main">
+            <form id="search-form">
+                <div class="input-group input-group-lg">
+                    <input class="form-control search-bar" placeholder="Search for a beer...">	
+                    <button class="btn btn-primary input-group-btn" type="submit">Search</button>
+                </div>
+            </form>
+            <hr>
+            <div id="card-container">
+                
+            </div>
+          </div>
         </div>
         <!-- end main content -->
 
