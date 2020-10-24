@@ -145,7 +145,7 @@ const addMarkerWithTimeout = (brewary, timeout) => {
                 <h3>${brewary.name}</h3>
                 <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
                 <p>${brewary.street}</p>
-                <p>${brewary.phone}</p>
+                <p>${formatPhoneNumber(brewary.phone)}</p>
                 <a href=${brewary.website_url} target="_blank">${brewary.website_url}</a>
                 `;
                 infowindow.setContent(contentWindow);
@@ -185,7 +185,7 @@ function setIcon(type) {
   let image = '';
   switch (type) {
     case 'micro':
-      image = 'red-circle.png';
+      image = 'wht-circle.png';
       break;
     case 'regional':
       image = 'blu-circle.png';
@@ -206,7 +206,7 @@ function setIcon(type) {
       image = 'purple-circle.png';
       break;
     case 'proprietor':
-      image = 'wht-circle.png';
+      image = 'red-circle.png';
       break;
     default:
       image = 'orange-circle.png';
@@ -214,6 +214,20 @@ function setIcon(type) {
   }
   return image;
 }
+
+let formatPhoneNumber = (str) => {
+  //Filter only numbers from the input
+  let cleaned = ('' + str).replace(/\D/g, '');
+  
+  //Check if the input is of correct length
+  let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+
+  if (match) {
+    return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+  }
+
+  return null;
+};
 
 
 
