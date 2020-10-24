@@ -2,12 +2,16 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-let map, infoWindow, myLat, myLng, zipCode, city, state, breweries;
+let map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
+let markers = [];
+let firstTime = true;
 
 function initMap() {
+  
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 40.7831, lng: -73.9712 },
-    zoom: 13,
+    center: { lat: 0, lng: 0 },
+    zoom: 1,
+    minZoom: 1
   });
   //infoWindow = new google.maps.InfoWindow();
   const locationButton = document.createElement("button");
@@ -29,39 +33,15 @@ function initMap() {
           map: map,
           icon: iconBase + 'icon50.png'
         });
-          //infoWindow.setPosition(pos);
-          //infoWindow.setContent(":)");
-          //infoWindow.open(map);
           map.setCenter(pos);
+          map.setZoom(12);
           myLat = pos.lat;
           myLng = pos.lng;
           zipCode = await getZipCode(myLat, myLng);
           city = await getCity(myLat, myLng);
           state = await getState(myLat, myLng);
           breweries = await getBreweries(zipCode, city, state);
-
-          var infowindow =  new google.maps.InfoWindow({});
-          var marker, count;
-          for (count = 0; count < breweries.length; count++) {
-            marker = new google.maps.Marker({
-            position: new google.maps.LatLng(breweries[count].latitude, breweries[count].longitude),
-            animation: google.maps.Animation.DROP,
-          map: map,
-          title: breweries[count].name
-          });
-          google.maps.event.addListener(marker, 'click', ((marker, count) => {
-          return function () {
-            const contentWindow = `
-            <h3>${breweries[count].name}</h3>
-            <h5>${breweries[count].brewery_type}</h5>
-            <p>${breweries[count].street}</p>
-            `;
-            infowindow.setContent(contentWindow);
-           
-            infowindow.open(map, marker);
-      };
-    })(marker, count));
-  }
+          drop(breweries);
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -138,5 +118,48 @@ const getBreweries = async (postal, city, state) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+const drop = (breweries) => {
+  clearMarkers();
+  for (let i = 0; i < breweries.length; i++) {
+    addMarkerWithTimeout(breweries[i], i * 200);
+  }
+};
+
+const addMarkerWithTimeout = (brewary, timeout) => {
+  window.setTimeout(() => {
+    markers.push(
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(brewary.latitude, brewary.longitude),
+        map: map,
+        animation: google.maps.Animation.DROP,
+        title: brewary.name
+      }),
+      
+      google.maps.event.addListener(marker, 'click', ((marker) => {
+              return function () {
+                let infowindow =  new google.maps.InfoWindow({});
+                const contentWindow = `
+                <h3>${brewary.name}</h3>
+                <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
+                <p>${brewary.street}</p>
+                <p>${brewary.phone}</p>
+                <a href=${brewary.website_url} target="_blank">${brewary.website_url}</a>
+                `;
+                infowindow.setContent(contentWindow);
+               
+                infowindow.open(map, marker);
+          };
+        })(marker)),
+    );
+  }, timeout);
+};
+
+const clearMarkers = () => {
+  for (let i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
 };
 
