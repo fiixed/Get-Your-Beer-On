@@ -208,8 +208,10 @@ const addMarkerWithTimeout = (brewary, timeout) => {
       }),
       infowindow =  new google.maps.InfoWindow({});
       google.maps.event.addListener(marker, 'click', ((marker) => {
-              return function () {
-                
+              
+                return function () {
+                var audio = new Audio("sounds/canopen.wav");
+                audio.play();
                 const contentWindow = `
                 <h3>${brewary.name}</h3>
                 <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
