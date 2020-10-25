@@ -19,7 +19,7 @@ async function getBeers(searchValue) {
     return await response.data.records;
 };
 
-getBeers('dog').then(result => console.log(result))
+getBeers('dog').then(result => console.log(result)) //remove this later, this is just so we can see where the data is
 
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
@@ -33,13 +33,23 @@ let createBeerCard = (beer) => {
     title.innerText = beer.fields.name;
     title.className = 'card-title';
 
-    let style = document.createElement('p');
+    let style = document.createElement('p'); //some are coming back as undefined. fix (ex blue moon)
     style.innerText = beer.fields.style_name;
-    style.className = '';
+    style.className = ''; //update this, research bootstrap classes
+
+    let cityState = document.createElement('p');
+    cityState.innerText = `${beer.fields.city}, ${beer.fields.state}`;
+    cityState.className = ''; //update this, research bootstrap classes
+
+    let country = document.createElement('p');
+    country.innerText = beer.fields.country;
+    country.className = ''; //update this, research bootstrap classes
 
 
     cardBody.appendChild(title);
     cardBody.appendChild(style);
+    cardBody.appendChild(cityState);
+    cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
 
@@ -53,6 +63,6 @@ let initListOfBeers = () => {
 
     cardContainer = document.getElementById('card-container');
     beerSearchData.forEach((beer) => {
-        createTaskCard(beer);
+        createBeerCard(beer);
     });
 };
