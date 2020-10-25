@@ -180,18 +180,17 @@ const getBreweriesByCity = async () => {
 };
 
 const getBreweriesByState = async () => {
-  var state = document.getElementById("state").value.toLowerCase();
-  if (state.length < 3) {
-    swal('Please use full state name, not an abbreviation');
-    document.getElementById("state").value = '';
-    return;
-  }
-  document.getElementById("state").value = '';
+  var e = document.getElementById("dropdown");
+  var state = e.options[e.selectedIndex].value;
+  let googleState;
+  let zoom;
+  (state == 'district%20of%20columbia') ? googleState = 'dc' : googleState = state;
+  (state == 'district%20of%20columbia') ? zoom = 12 : zoom = 6;
   var geocoder = new google.maps.Geocoder();
-	geocoder.geocode( { 'address': state }, function(results, status) {
+	geocoder.geocode( { 'address': googleState }, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
-      map.setZoom(6);
+      map.setZoom(zoom);
 		} else {
 			swal("Could not find location: " + location);
 		}
