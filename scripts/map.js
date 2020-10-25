@@ -181,6 +181,11 @@ const getBreweriesByCity = async () => {
 
 const getBreweriesByState = async () => {
   var state = document.getElementById("state").value.toLowerCase();
+  if (state.length < 3) {
+    swal('Please use full state name, not an abbreviation');
+    document.getElementById("state").value = '';
+    return;
+  }
   document.getElementById("state").value = '';
   var geocoder = new google.maps.Geocoder();
 	geocoder.geocode( { 'address': state }, function(results, status) {
