@@ -7,12 +7,19 @@ var markers = [];
 let firstTime = true;
 
 function initMap() {
-  
+  let country = "United States";
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 0, lng: 0 },
-    zoom: 1,
+    zoom: 4,
     minZoom: 1
   });
+  var geocoder = new google.maps.Geocoder();
+	geocoder.geocode( { 'address': country }, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			map.setCenter(results[0].geometry.location);
+		} else {
+			alert("Could not find location: " + location);
+		}
+	});
   const locationButton = document.getElementById("location");
   locationButton.classList.add("custom-map-control-button");
   locationButton.addEventListener("click", () => {
