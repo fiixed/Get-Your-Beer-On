@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 body {
-  font-family: "Roboto";
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
 }
 
 /* Always set the map height explicitly to define the size of the div
