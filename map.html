@@ -51,11 +51,29 @@
         <button type="submit" id="location">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
-        <input type="text" name="zip" id="zip" placeholder="Enter Zip" />
+        <input
+          type="text"
+          name="zip"
+          id="zip"
+          onfocus="this.value=''"
+          placeholder="Enter Zip"
+        />
         <button type="submit" onclick="getBreweriesByZip();">Zip Code</button>
-        <input type="text" name="city" id="city" placeholder="Enter City" />
+        <input
+          type="text"
+          name="city"
+          id="city"
+          onfocus="this.value=''"
+          placeholder="Enter City"
+        />
         <button type="submit" onclick="getBreweriesByCity();">City</button>
-        <input type="text" name="state" id="state" placeholder="Enter State" />
+        <input
+          type="text"
+          name="state"
+          id="state"
+          onfocus="this.value=''"
+          placeholder="Enter State"
+        />
         <button type="submit" onclick="getBreweriesByState();">State</button>
         <br />
         <hr />
