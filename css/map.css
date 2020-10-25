@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+body {
+  font-family: "Roboto";
+}
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -17,7 +22,7 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   right: 0;
-  background-color: #fff; /* Grey */
+  background-color: rgb(246, 174, 10); /* Grey */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -43,14 +48,12 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
 }
-.custom-map-control-button:hover {
-  background: #ebebeb;
-}
 
 .square {
   height: 20px;
   width: 20px;
   margin-right: 5px;
+  border: 2px solid black;
 }
 
 .check {
@@ -63,8 +66,18 @@ body {
   align-items: baseline;
 }
 
-#orange {
-  background-color: #f7ba4c;
+#location {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+}
+button {
+  background-color: #000;
+  color: #fff;
+}
+
+#white {
+  background-color: #fff;
 }
 
 #blue {
