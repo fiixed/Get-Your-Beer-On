@@ -31,11 +31,11 @@ function initMap() {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          var iconBase = 'http://maps.google.com/mapfiles/kml/pal4/';
+          var iconBase = 'http://maps.google.com/mapfiles/kml/pal2/';
           var you = new google.maps.Marker({
           position: pos,
           map: map,
-          icon: iconBase + 'icon50.png'
+          icon: iconBase + 'icon10.png'
         });
           map.setCenter(pos);
           map.setZoom(12);
