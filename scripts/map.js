@@ -280,7 +280,7 @@ function setIcon(type) {
   let image = '';
   switch (type) {
     case 'micro':
-      image = 'orange-circle.png';
+      image = 'red-circle.png';
       break;
     case 'regional':
       image = 'blu-circle.png';
@@ -301,10 +301,10 @@ function setIcon(type) {
       image = 'purple-circle.png';
       break;
     case 'proprietor':
-      image = 'red-circle.png';
+      image = 'wht-circle.png';
       break;
     default:
-      image = 'wht-circle.png';
+      image = 'orange-circle.png';
       break;
   }
   return image;
