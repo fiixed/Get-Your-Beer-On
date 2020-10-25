@@ -135,7 +135,7 @@ const getBreweriesByZip = async () => {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
       breweries = response.data;
       if (breweries.length == 0) {
-        alert('No results, please widen your search');
+        alert(`No results in ${postal}, please widen your search`);
         return;
       }
       drop(breweries);
@@ -162,7 +162,7 @@ const getBreweriesByCity = async () => {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
       breweries = response.data;
       if (breweries.length == 0) {
-        alert('No results, please widen your search');
+        alert(`No results in ${titleCase(city)}, please widen your search`);
         return;
       }
       drop(breweries);
@@ -188,7 +188,7 @@ const getBreweriesByState = async () => {
         const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
         breweries = response.data;
         if (breweries.length == 0) {
-          alert('No results, please widen your search');
+          alert(`No results in ${titleCase(state)}, please widen your search`);
           return;
         }
         drop(breweries);
@@ -330,6 +330,17 @@ $('.tags').on('change', 'input[type="checkbox"]', function () {
       }
   }
 });
+};
+
+const titleCase = (str) => {
+  var splitStr = str.toLowerCase().split(' ');
+  for (var i = 0; i < splitStr.length; i++) {
+      // You do not need to check if i is larger than splitStr length, as your for does that for you
+      // Assign it back to the array
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+  }
+  // Directly return the joined string
+  return splitStr.join(' '); 
 };
 
 
