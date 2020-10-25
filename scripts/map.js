@@ -119,6 +119,7 @@ const getBreweries = async (postal, city, state) => {
 
 const getBreweriesByZip = async () => {
   var postal_code = document.getElementById("zip").value.toLowerCase();
+  document.getElementById("zip").value = '';
 
   var geocoder = new google.maps.Geocoder();
 	geocoder.geocode( { 'address': postal_code }, function(results, status) {
@@ -141,7 +142,7 @@ const getBreweriesByZip = async () => {
 
 const getBreweriesByCity = async () => {
   var city = document.getElementById("city").value.toLowerCase();
-
+  document.getElementById("city").value = '';
   var geocoder = new google.maps.Geocoder();
 	geocoder.geocode( { 'address': city }, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
@@ -162,7 +163,7 @@ const getBreweriesByCity = async () => {
 
 const getBreweriesByState = async () => {
   var state = document.getElementById("state").value.toLowerCase();
-
+  document.getElementById("state").value = '';
   var geocoder = new google.maps.Geocoder();
 	geocoder.geocode( { 'address': state }, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
