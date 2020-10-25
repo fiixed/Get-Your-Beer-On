@@ -38,6 +38,7 @@ function initMap() {
           city = await getCity(myLat, myLng);
           state = await getState(myLat, myLng);
           breweries = await getBreweries(zipCode, city, state);
+          console.log(breweries);
           drop(breweries);
         },
         () => {
@@ -208,6 +209,7 @@ const addMarkerWithTimeout = (brewary, timeout) => {
                 <h3>${brewary.name}</h3>
                 <h5>${brewary.brewery_type.charAt(0).toUpperCase() + brewary.brewery_type.slice(1)}</h5>
                 <p>${brewary.street}</p>
+                <p>${brewary.city}  ${brewary.postal_code}</p>
                 <p>${formatPhoneNumber(brewary.phone)}</p>
                 <a href=${brewary.website_url} target="_blank">${brewary.website_url}</a>
                 `;
