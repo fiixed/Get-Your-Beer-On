@@ -133,12 +133,13 @@ const getBreweriesByZip = async () => {
   let postal = postal_code;
   try {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
-      
-      drop(response.data);
+      breweries = response.data;
+      drop(breweries);
       
   } catch (error) {
     console.log(error);
   }
+
 };
 
 const getBreweriesByCity = async () => {
@@ -155,8 +156,8 @@ const getBreweriesByCity = async () => {
 	});
   try {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
-      
-    drop(response.data);
+      breweries = response.data;
+      drop(breweries);
     
   } catch (error) {
     console.log(error);
@@ -177,11 +178,13 @@ const getBreweriesByState = async () => {
 	});
   try {
         const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
-        drop(response.data);
+        breweries = response.data;
+        drop(breweries);
         
   } catch (error) {
     console.log(error);
   }
+
 };
 
 
