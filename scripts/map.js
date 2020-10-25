@@ -276,22 +276,22 @@ function setIcon(type) {
   let image = '';
   switch (type) {
     case 'micro':
-      image = 'wht-circle.png';
+      image = 'orange-circle.png';
       break;
     case 'regional':
       image = 'blu-circle.png';
       break;
     case 'brewpub':
-      image = 'grn-circle.png';
+      image = 'ltblu-circle.png';
       break;
     case 'large':
-      image = 'ltblu-circle.png';
+      image = 'ylw-circle.png';
       break;
     case 'planning':
       image = 'pink-circle.png';
       break;
     case 'bar':
-      image = 'ylw-circle.png';
+      image = 'grn-circle.png';
       break;
     case 'contract':
       image = 'purple-circle.png';
@@ -300,7 +300,7 @@ function setIcon(type) {
       image = 'red-circle.png';
       break;
     default:
-      image = 'orange-circle.png';
+      image = 'wht-circle.png';
       break;
   }
   return image;

@@ -11,8 +11,8 @@
 /* The sidebar menu */
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 20%; 
-  min-width: 150px;/* Set the width of the sidebar */
+  width: 20%;
+  min-width: 150px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -45,4 +45,52 @@ body {
 }
 .custom-map-control-button:hover {
   background: #ebebeb;
+}
+
+.square {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+
+.check {
+  margin-right: 5px;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+#orange {
+  background-color: #f7ba4c;
+}
+
+#blue {
+  background-color: #4365fd;
+}
+
+#ltblue {
+  background-color: #88ffe5;
+}
+
+#yellow {
+  background-color: #fcf649;
+}
+
+#pink {
+  background-color: #f14e8c;
+}
+
+#green {
+  background-color: #52ff69;
+}
+
+#purple {
+  background-color: #6b36fe;
+}
+
+#red {
+  background-color: #f04741;
 }
