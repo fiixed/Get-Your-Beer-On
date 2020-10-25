@@ -17,7 +17,7 @@ function initMap() {
 		if (status == google.maps.GeocoderStatus.OK) {
 			map.setCenter(results[0].geometry.location);
 		} else {
-			alert("Could not find location: " + location);
+			swal("Could not find location: " + location);
 		}
 	});
   const locationButton = document.getElementById("location");
@@ -134,7 +134,7 @@ const getBreweriesByZip = async () => {
       map.setCenter(results[0].geometry.location);
       map.setZoom(13);
 		} else {
-			alert("Could not find location: " + location);
+			swal("Could not find location: " + location);
 		}
   });
   let postal = postal_code;
@@ -142,7 +142,7 @@ const getBreweriesByZip = async () => {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
       breweries = response.data;
       if (breweries.length == 0) {
-        alert(`No results in ${postal}, please widen your search`);
+        swal(`No results in ${postal}, please widen your search`);
         return;
       }
       drop(breweries);
@@ -162,14 +162,14 @@ const getBreweriesByCity = async () => {
       map.setCenter(results[0].geometry.location);
       map.setZoom(11);
 		} else {
-			alert("Could not find location: " + location);
+			swal("Could not find location: " + location);
 		}
 	});
   try {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
       breweries = response.data;
       if (breweries.length == 0) {
-        alert(`No results in ${titleCase(city)}, please widen your search`);
+        swal(`No results in ${titleCase(city)}, please widen your search`);
         return;
       }
       drop(breweries);
@@ -188,14 +188,14 @@ const getBreweriesByState = async () => {
       map.setCenter(results[0].geometry.location);
       map.setZoom(6);
 		} else {
-			alert("Could not find location: " + location);
+			swal("Could not find location: " + location);
 		}
 	});
   try {
         const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
         breweries = response.data;
         if (breweries.length == 0) {
-          alert(`No results in ${titleCase(state)}, please widen your search`);
+          swal(`No results in ${titleCase(state)}, please widen your search`);
           return;
         }
         drop(breweries);
