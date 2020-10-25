@@ -3,6 +3,7 @@ let beerSearchData, cardContainer;
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('search-form').addEventListener('submit', async e => {
         e.preventDefault();
+        document.getElementById('card-container').innerHTML = '';
         let searchString = document.querySelector('.search-bar').value;
         let urlEncodedSearchString = encodeURIComponent(searchString);
         beerSearchData = await getBeers(urlEncodedSearchString);
