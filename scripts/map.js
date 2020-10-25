@@ -38,7 +38,6 @@ function initMap() {
           city = await getCity(myLat, myLng);
           state = await getState(myLat, myLng);
           breweries = await getBreweries(zipCode, city, state);
-          console.log(breweries);
           drop(breweries);
         },
         () => {
