@@ -51,7 +51,7 @@ function initMap() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   });
-  
+  filter();
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -135,6 +135,7 @@ const getBreweriesByZip = async () => {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_postal=${postal}`);
       
       drop(response.data);
+      
   } catch (error) {
     console.log(error);
   }
@@ -156,6 +157,7 @@ const getBreweriesByCity = async () => {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}&per_page=50`);
       
     drop(response.data);
+    
   } catch (error) {
     console.log(error);
   }
@@ -176,6 +178,7 @@ const getBreweriesByState = async () => {
   try {
         const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${state}&per_page=50`);
         drop(response.data);
+        
   } catch (error) {
     console.log(error);
   }
@@ -291,6 +294,25 @@ let formatPhoneNumber = (str) => {
   }
 
   return null;
+};
+
+let filter = () => {
+// Filter for Checkbox
+$('.tags').on('change', 'input[type="checkbox"]', function () {
+  filter = $(this);
+  filterValue = filter.val();
+  for (i = 0; i < breweries.length; i++) {
+      if (filter.is(':checked')) {
+        if (breweries[i].brewery_type == filterValue) {
+          markers[i].setVisible(true);
+        }
+      } else {
+        if (breweries[i].brewery_type == filterValue) {
+          markers[i].setVisible(false);
+        }
+      }
+  }
+});
 };
 
 
