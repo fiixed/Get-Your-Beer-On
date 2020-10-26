@@ -7,18 +7,23 @@ Get Your Beer On is an online web application to for users looking for their nex
 Our website allows users to easily locate breweries in their area or in a desired geographical location. Users can also search for beers by style, country of origin, and brand.
 
 ## Scope of functionalities
+
 TBD
 
 ## Examples of use
+
 TBD
 
 ## Sources
-TBD - APIs, etc.
+
+[Open Brewery DB](https://www.openbrewerydb.org/), [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/overview), [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
 
 ## Technologies
-[Bootstrap](https://getbootstrap.com/), [Axios](https://github.com/axios/axios)
+
+[Bootstrap](https://getbootstrap.com/), [Axios](https://github.com/axios/axios), [JQuery](https://jquery.com/) [SweetAlert.js](https://sweetalert.js.org/)
 
 ## Status
+
 Website is currently in production.
 
 ## Contributors
@@ -28,8 +33,8 @@ Website is currently in production.
 [Jason Wilger](https://github.com/JasonWilger),
 [Nick Ochs](https://github.com/n-ochs)
 
-
 ## Future updates
+
 TBD
 
 ## Contributing
