@@ -215,7 +215,7 @@ const getBreweriesByState = async () => {
 const drop = (breweries) => {
   deleteMarkers();
   for (let i = 0; i < breweries.length; i++) {
-    addMarkerWithTimeout(breweries[i], i * 200);
+    addMarkerWithTimeout(breweries[i], i * 80);
   }
 };
 
@@ -276,7 +276,7 @@ function deleteMarkers() {
   markers = [];
 }
 
-function setIcon(type) {
+const setIcon = (type) => {
   let image = '';
   switch (type) {
     case 'micro':
@@ -310,7 +310,7 @@ function setIcon(type) {
   return image;
 }
 
-let formatPhoneNumber = (str) => {
+const formatPhoneNumber = (str) => {
   //Filter only numbers from the input
   let cleaned = ('' + str).replace(/\D/g, '');
   
