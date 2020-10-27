@@ -180,18 +180,17 @@ const getBreweriesByCity = async () => {
 };
 
 const getBreweriesByState = async () => {
-  var state = document.getElementById("state").value.toLowerCase();
-  if (state.length < 3) {
-    swal('Please use full state name, not an abbreviation');
-    document.getElementById("state").value = '';
-    return;
-  }
-  document.getElementById("state").value = '';
+  var e = document.getElementById("dropdown");
+  var state = e.options[e.selectedIndex].value;
+  let googleState;
+  let zoom;
+  (state == 'district%20of%20columbia') ? googleState = 'dc' : googleState = state;
+  (state == 'district%20of%20columbia') ? zoom = 12 : zoom = 6;
   var geocoder = new google.maps.Geocoder();
-	geocoder.geocode( { 'address': state }, function(results, status) {
+	geocoder.geocode( { 'address': googleState }, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
-      map.setZoom(6);
+      map.setZoom(zoom);
 		} else {
 			swal("Could not find location: " + location);
 		}
@@ -216,7 +215,7 @@ const getBreweriesByState = async () => {
 const drop = (breweries) => {
   deleteMarkers();
   for (let i = 0; i < breweries.length; i++) {
-    addMarkerWithTimeout(breweries[i], i * 200);
+    addMarkerWithTimeout(breweries[i], i * 80);
   }
 };
 
@@ -277,11 +276,11 @@ function deleteMarkers() {
   markers = [];
 }
 
-function setIcon(type) {
+const setIcon = (type) => {
   let image = '';
   switch (type) {
     case 'micro':
-      image = 'orange-circle.png';
+      image = 'red-circle.png';
       break;
     case 'regional':
       image = 'blu-circle.png';
@@ -302,16 +301,16 @@ function setIcon(type) {
       image = 'purple-circle.png';
       break;
     case 'proprietor':
-      image = 'red-circle.png';
+      image = 'wht-circle.png';
       break;
     default:
-      image = 'wht-circle.png';
+      image = 'orange-circle.png';
       break;
   }
   return image;
 }
 
-let formatPhoneNumber = (str) => {
+const formatPhoneNumber = (str) => {
   //Filter only numbers from the input
   let cleaned = ('' + str).replace(/\D/g, '');
   

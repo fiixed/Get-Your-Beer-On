@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Brew Connection</title>
+    <title>Get Your Beer On</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -40,7 +44,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link href="css/style.css" rel="stylesheet" />
+    <!-- <link href="css/style.css" rel="stylesheet" /> -->
     <link rel="stylesheet" type="text/css" href="css/map.css" />
     <link
       rel="stylesheet"
@@ -60,10 +64,10 @@
           name="zip"
           id="zip"
           onfocus="this.value=''"
-          placeholder="Enter Zip"
+          placeholder="Enter Zip Code"
         />
         <button type="submit" id="zipButton" onclick="getBreweriesByZip();">
-          Zip Code
+          Zip
         </button>
         <input
           type="text"
@@ -75,13 +79,66 @@
         <button type="submit" id="cityButton" onclick="getBreweriesByCity();">
           City
         </button>
-        <input
+        <!-- <input
           type="text"
           name="state"
           id="state"
           onfocus="this.value=''"
           placeholder="Enter State"
-        />
+        /> -->
+        <select id="dropdown">
+          <option value="alabama">Alabama</option>
+          <option value="alaska">Alaska</option>
+          <option value="arizona">Arizona</option>
+          <option value="arkansas">Arkansas</option>
+          <option value="california">California</option>
+          <option value="colorado">Colorado</option>
+          <option value="connecticut">Connecticut</option>
+          <option value="delaware">Delaware</option>
+          <option value="district%20of%20columbia">District Of Columbia</option>
+          <option value="florida">Florida</option>
+          <option value="georgia">Georgia</option>
+          <option value="hawaii">Hawaii</option>
+          <option value="idaho">Idaho</option>
+          <option value="illinois">Illinois</option>
+          <option value="indiana">Indiana</option>
+          <option value="iowa">Iowa</option>
+          <option value="kansas">Kansas</option>
+          <option value="kentucky">Kentucky</option>
+          <option value="louisiana">Louisiana</option>
+          <option value="maine">Maine</option>
+          <option value="maryland">Maryland</option>
+          <option value="massachusetts">Massachusetts</option>
+          <option value="michigan">Michigan</option>
+          <option value="minnesota">Minnesota</option>
+          <option value="mississippi">Mississippi</option>
+          <option value="missouri">Missouri</option>
+          <option value="montana">Montana</option>
+          <option value="nebraska">Nebraska</option>
+          <option value="nevada">Nevada</option>
+          <option value="new%20hampshire">New Hampshire</option>
+          <option value="new%20jersey">New Jersey</option>
+          <option value="new%20mexico">New Mexico</option>
+          <option value="new%20york">New York</option>
+          <option value="north%20carolina">North Carolina</option>
+          <option value="north%20dakota">North Dakota</option>
+          <option value="ohio">Ohio</option>
+          <option value="oklahoma">Oklahoma</option>
+          <option value="oregon">Oregon</option>
+          <option value="pennsylvania">Pennsylvania</option>
+          <option value="rhode%20island">Rhode Island</option>
+          <option value="south%20carolina">South Carolina</option>
+          <option value="south%20dakota">South Dakota</option>
+          <option value="tennessee">Tennessee</option>
+          <option value="texas">Texas</option>
+          <option value="utah">Utah</option>
+          <option value="vermont">Vermont</option>
+          <option value="virginia">Virginia</option>
+          <option value="washington">Washington</option>
+          <option value="west%20virginia">West Virginia</option>
+          <option value="wisconsin">Wisconsin</option>
+          <option value="wyoming">Wyoming</option>
+        </select>
         <button type="submit" id="stateButton" onclick="getBreweriesByState();">
           State
         </button>
@@ -90,7 +147,7 @@
         <div class="tags">
           <label for="">Filter By:</label><br />
           <div class="checkboxes">
-            <div class="square" id="orange"></div>
+            <div class="square" id="red"></div>
             <input
               class="check"
               type="checkbox"
@@ -176,7 +233,7 @@
             <label for="contract">Contract</label>
           </div>
           <div class="checkboxes">
-            <div class="square" id="red"></div>
+            <div class="square" id="white"></div>
             <input
               class="check"
               type="checkbox"

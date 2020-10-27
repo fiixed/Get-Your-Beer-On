@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+body {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+}
+
+.swal-overlay {
+  background-color: rgba(233, 47, 50, 0.45);
+}
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: rgb(246, 174, 10);
+  font-size: 12px;
+  border: 1px solid #3e549a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -17,7 +34,7 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   right: 0;
-  background-color: #fff; /* Grey */
+  background-color: rgb(246, 174, 10); /* Grey */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -43,18 +60,17 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
 }
-.custom-map-control-button:hover {
-  background: #ebebeb;
-}
 
 .square {
   height: 20px;
   width: 20px;
   margin-right: 5px;
+  border: 2px solid black;
 }
 
 .check {
   margin-right: 5px;
+  background-color: #000;
 }
 
 .checkboxes {
@@ -63,8 +79,18 @@ body {
   align-items: baseline;
 }
 
-#orange {
-  background-color: #f7ba4c;
+#location {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+}
+button {
+  background-color: #000;
+  color: #fff;
+}
+
+#white {
+  background-color: #fff;
 }
 
 #blue {
