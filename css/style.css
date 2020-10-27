@@ -1,14 +1,48 @@
 html {
-  max-width: 100%;
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 50px;
-  background-repeat: no-repeat;
-  background-image: url("../images/wheat.jpeg");
+    background: rgb(246, 174, 10) url(/images/beer-pinterest.jpg) repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ 
 }
+ 
+@-webkit-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-moz-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-ms-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@-o-keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+ 
+@keyframes animate {
+	from {background-position:0 0;}
+	to {background-position: 500px 0;}
+}
+/* end html style */
+
 
 body {
-  background-color: tan;
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+}
+
+hr {
+  border-top: 1px solid black;
 }
 
 #home-search {
@@ -16,7 +50,7 @@ body {
 }
 
 #header {
-  background-image: url("../images/beertaps.jpg");
+  background-color: rgb(246, 174, 10);
   background-size: 100%;
   min-height: 300px;
   background-repeat: no-repeat;
@@ -28,12 +62,6 @@ body {
   justify-content: flex-end;
 }
 
-.display-4 {
-  font-family: fantasy;
-  color: mediumblue;
-  text-decoration: underline;
-}
-
 #home-main {
   margin: 100px;
 }
@@ -43,15 +71,14 @@ body {
 }
 
 #footer{
-  background-color: #814D30;
+  background-color: rgb(246, 174, 10);
+  margin-bottom: -1%;
 }
 
 .foot-title {
   display: flex;
   justify-content: center;
-  font-family: fantasy;
-  color: mediumblue;
-  text-decoration: underline;
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
 }
 
 .social {
@@ -64,35 +91,12 @@ body {
   font-size: small;
   display: flex;
   justify-content: center;
-  font-family: fantasy;
-  color: mediumblue;
-  text-decoration: underline;
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
   padding-top: 15px;
 }
 
-#feedback {
-  margin: 10px;
-}
 
-h3 {
-  font-family: fantasy;
-  color: mediumblue;
-  text-decoration: underline;
-}
-
-
-
-/* animation */
-
-#title {
-  font-family: fantasy;
-  color: mediumblue;
-  text-decoration: underline;
-}
-
-#lead {
-  color: mediumblue;
-}
+/* ---main animation */
 
 #comments {
   margin: 100px;
@@ -102,12 +106,57 @@ h3 {
   margin: 100px;
 }
 
-/* end animation */
+/* title animation */
+#type {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+  font-weight: 200;
+  margin: 0.4em 0;
+}
+#type { font-size: 1.5em; }
+/* end title animation */
+
+/* ---end main animation */
+
 
 /* Set the size of the div element that contains the map */
+
 #map {
   height: 400px;
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
 }
+
+/* End map content */
+
+
+/* fade effect NAV */
+
+.box-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:5%;
+}
+#box{
+  padding: 5px;
+  background-color: rgb(246, 174, 10);
+  width:100%;
+  border-radius:5px;
+  transition:.2s all;
+}
+.box-wrap:hover #box{
+  filter:blur(2px);
+  opacity:.5;
+  transform: scale(.98);
+  box-shadow:none;
+}
+.box-wrap:hover #box:hover{
+  transform:scale(1);
+  filter:blur(0px);
+  opacity:1;
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.50);
+}
+
+/* end fade effect NAV */
+
