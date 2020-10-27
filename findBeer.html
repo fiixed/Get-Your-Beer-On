@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>The Brew Connection</title>
+    <title>Get Your Beer On</title>
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
@@ -26,6 +26,10 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <!-- end style -->
 
   </head>
@@ -36,15 +40,27 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div id="menu" class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+              <div class="box-wrap">
+              <li id="box" class="nav-item active">
                 <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item active">
+              <li id="box"class="nav-item active">
                 <a class="nav-link" href="map.html">MAP</a>
               </li>
-          </div>
+              <li id="box" class="nav-item active">
+                <a class="nav-link" href="findBeer.html">F.A.B</a>
+              </li>
         </nav>
         <h1 id="title" class="animate__animated animate__backInDown">Find A Beer</h1>
+        <hr style="width: 60%;">
+        <div id="lead" class="animate__animated animate__backInDown">
+          <h3 id="type">Find your next
+            <span
+            class="txt-rotate"
+            data-period="2000"
+            data-rotate='[ "brewery.", "pub.", "favorite drink.", "good night." ]'></span>
+            </h3>
+        </div>
       </div>
       <!-- end header -->
 
@@ -85,8 +101,8 @@
   <!-- footer -->
   <div id="footer" class="jumbotron jumbotron-fluid">
     <div class="container">
-      <a href="index.html"><h1 class="foot-title">The Brew Connection</h1>
-      </a>
+      <h1 class="foot-title">Get Your Beer On</h1>
+      <hr style="width: 60%;">
       <div class="social">
         <a href="https://twitter.com/?lang=en"><img src="https://img.icons8.com/dotty/80/000000/twitter.png" alt="twitter"/>
         </a>
@@ -95,7 +111,8 @@
         <a href="https://www.facebook.com/"><img src="https://img.icons8.com/dotty/80/000000/facebook-new.png" alt="facebook"/>
         </a>
     </div>
-    <div class="copyright"> ©2020 The Brew Connection. All Rights Reserved</div>
+    <hr style="width: 60%;">
+    <div class="copyright"> ©2020 Get Your Beer On. All Rights Reserved</div>
   </div>
   <!-- end footer -->
 
