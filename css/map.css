@@ -3,6 +3,10 @@ body {
   font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
 }
 
+hr {
+  border-top: 1px solid black;
+}
+
 .swal-overlay {
   background-color: rgba(233, 47, 50, 0.45);
 }
@@ -87,6 +91,8 @@ body {
 button {
   background-color: #000;
   color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #white {

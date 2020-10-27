@@ -53,10 +53,24 @@
     <!-- end style -->
   </head>
   <body>
+
     <div id="map"></div>
     <div class="sidenav">
       <div class="container">
-        <button type="submit" id="location">Find Me</button>
+
+        <!-- menu -->
+        <div class="dropdown">
+          <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              MENU
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item text-center" href="index.html">HOME</a>
+            <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
+          </div>
+        </div>
+        <!-- end menu -->
+
+        <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
         <input
@@ -66,7 +80,7 @@
           onfocus="this.value=''"
           placeholder="Enter Zip Code"
         />
-        <button type="submit" id="zipButton" onclick="getBreweriesByZip();">
+        <button type="submit" id="zipButton" onclick="getBreweriesByZip();" class="btn btn-dark active">
           Zip
         </button>
         <input
@@ -76,7 +90,7 @@
           onfocus="this.value=''"
           placeholder="Enter City"
         />
-        <button type="submit" id="cityButton" onclick="getBreweriesByCity();">
+        <button type="submit" id="cityButton" onclick="getBreweriesByCity();" class="btn btn-dark active">
           City
         </button>
         <!-- <input
@@ -139,7 +153,7 @@
           <option value="wisconsin">Wisconsin</option>
           <option value="wyoming">Wyoming</option>
         </select>
-        <button type="submit" id="stateButton" onclick="getBreweriesByState();">
+        <button type="submit" id="stateButton" onclick="getBreweriesByState();" class="btn btn-dark active">
           State
         </button>
         <br />
