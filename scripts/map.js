@@ -210,6 +210,24 @@ const getBreweriesByState = async () => {
 
 };
 
+const getBreweryByName = async (name, latitude, longitude) => {
+  var latLng = new google.maps.LatLng(latitude, coords.longitude);
+  map.setCenter(latLng);
+  map.setZoom(15);
+  try {
+      const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_name=${name}`);
+      breweries = response.data;
+      if (breweries.length == 0) {
+        swal(`No brewary found?`);
+        return;
+      }
+      drop(breweries);
+    
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 
 const drop = (breweries) => {
