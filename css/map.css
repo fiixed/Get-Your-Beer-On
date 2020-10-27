@@ -3,6 +3,10 @@ body {
   font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
 }
 
+hr {
+  border-top: 1px solid black;
+}
+
 .swal-overlay {
   background-color: rgba(233, 47, 50, 0.45);
 }
@@ -87,6 +91,8 @@ body {
 button {
   background-color: #000;
   color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #white {
@@ -119,6 +125,7 @@ button {
 
 #red {
   background-color: #f04741;
+<<<<<<< HEAD
 }
 
 /* Light mode */
@@ -132,3 +139,6 @@ body.dark {
   background: #000;
   color: #fff;
 }
+=======
+}
+>>>>>>> e2604a31397944df9b6bc1e5fac637711072db68
