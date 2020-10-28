@@ -19,6 +19,7 @@ async function getBeers(searchValue) {
     return await response.data.records;
 };
 
+//This function will create a "card" for each beer result returned from the API
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
     let card = document.createElement('div');
@@ -61,10 +62,9 @@ let createBeerCard = (beer) => {
     cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
-    console.log(beer.fields.city)
-
 }
 
+//This function will render the previously created beer cards to the screen
 let initListOfBeers = () => {
     if (cardContainer) {
         document.getElementById('card-container').replaceWith(cardContainer);
@@ -76,3 +76,12 @@ let initListOfBeers = () => {
         createBeerCard(beer);
     });
 };
+
+function styleFilter() {
+    let styleDropdown = document.getElementById('styleOfBeer');
+    let firstOption = document.createElement('a');
+    firstOption.className = 'dropdown-item';
+    firstOption.href = '#';
+    firstOption.innerText = 'test'
+    styleDropdown.appendChild(firstOption);
+}
