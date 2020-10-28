@@ -19,8 +19,6 @@ async function getBeers(searchValue) {
     return await response.data.records;
 };
 
-getBeers('dog').then(result => console.log(result)) //remove this later, this is just so we can see where the data is
-
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
     let card = document.createElement('div');
@@ -33,25 +31,37 @@ let createBeerCard = (beer) => {
     title.innerText = beer.fields.name;
     title.className = 'card-title';
 
-    let style = document.createElement('p'); //some are coming back as undefined. fix (ex blue moon)
-    style.innerText = beer.fields.style_name;
-    style.className = ''; //update this, research bootstrap classes
+    let styleOfBeer = document.createElement('p');
+    styleOfBeer.innerText = beer.fields.style_name;
+    styleOfBeer.className = 'card-text';
 
     let cityState = document.createElement('p');
     cityState.innerText = `${beer.fields.city}, ${beer.fields.state}`;
-    cityState.className = ''; //update this, research bootstrap classes
+    cityState.className = 'card-text';
 
     let country = document.createElement('p');
     country.innerText = beer.fields.country;
-    country.className = ''; //update this, research bootstrap classes
-
+    country.className = 'card-text';
 
     cardBody.appendChild(title);
-    cardBody.appendChild(style);
+
+    cardBody.appendChild(styleOfBeer);
+    if(styleOfBeer.innerText == 'undefined') {
+        styleOfBeer.innerText = '';
+    }
+
     cardBody.appendChild(cityState);
+    if(beer.fields.city == undefined) {
+        cityState.innerText = beer.fields.state;
+    }
+    if(beer.fields.state == undefined) {
+        cityState.innerText = beer.fields.city;
+    }
+
     cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
+    console.log(beer.fields.city)
 
 }
 
