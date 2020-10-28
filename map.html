@@ -53,15 +53,20 @@
     <!-- end style -->
   </head>
   <body>
-
     <div id="map"></div>
     <div class="sidenav">
       <div class="container">
-
         <!-- menu -->
         <div class="dropdown">
-          <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              MENU
+          <button
+            class="btn float-right dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            MENU
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item text-center" href="index.html">HOME</a>
@@ -70,7 +75,9 @@
         </div>
         <!-- end menu -->
 
-        <button type="submit" id="location" class="btn btn-dark">Find Me</button>
+        <button type="submit" id="location" class="btn btn-dark">
+          Find Me
+        </button>
         <hr />
         <label for="">Search By:</label><br />
         <input
@@ -80,7 +87,12 @@
           onfocus="this.value=''"
           placeholder="Enter Zip Code"
         />
-        <button type="submit" id="zipButton" onclick="getBreweriesByZip();" class="btn btn-dark active">
+        <button
+          type="submit"
+          id="zipButton"
+          onclick="getBreweriesByZip();"
+          class="btn btn-dark active"
+        >
           Zip
         </button>
         <input
@@ -90,7 +102,12 @@
           onfocus="this.value=''"
           placeholder="Enter City"
         />
-        <button type="submit" id="cityButton" onclick="getBreweriesByCity();" class="btn btn-dark active">
+        <button
+          type="submit"
+          id="cityButton"
+          onclick="getBreweriesByCity();"
+          class="btn btn-dark active"
+        >
           City
         </button>
         <!-- <input
@@ -153,7 +170,12 @@
           <option value="wisconsin">Wisconsin</option>
           <option value="wyoming">Wyoming</option>
         </select>
-        <button type="submit" id="stateButton" onclick="getBreweriesByState();" class="btn btn-dark active">
+        <button
+          type="submit"
+          id="stateButton"
+          onclick="getBreweriesByState();"
+          class="btn btn-dark active"
+        >
           State
         </button>
         <br />
@@ -261,6 +283,13 @@
           <!--Button for dark mode-->
           <br />
           <button onclick="myFunction()">Dark Mode</button>
+
+          <script>
+            function myFunction() {
+              var element = document.body;
+              element.classList.toggle("dark-mode");
+            }
+          </script>
           <!--End button for dark mode-->
         </div>
       </div>
