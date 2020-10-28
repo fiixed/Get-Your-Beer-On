@@ -85,3 +85,5 @@ function styleFilter() {
     firstOption.innerText = 'test'
     styleDropdown.appendChild(firstOption);
 }
+
+styleFilter()
