@@ -202,9 +202,7 @@ const getBreweriesByState = async () => {
   var state = e.options[e.selectedIndex].value;
   let googleState;
   let zoom;
-  state == "district%20of%20columbia"
-    ? (googleState = "dc")
-    : (googleState = state);
+  state == "district%20of%20columbia" ? (googleState = "DC"): (googleState = state);
   state == "district%20of%20columbia" ? (zoom = 12) : (zoom = 6);
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({ address: googleState }, function (results, status) {
