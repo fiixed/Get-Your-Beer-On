@@ -12,6 +12,14 @@ function initMap() {
     zoom: 4,
     minZoom: 1,
   });
+
+  let name = sessionStorage.getItem('name');
+  let beerLat = sessionStorage.getItem('lat');
+  let beerLng = sessionStorage.getItem('lng');
+  if (name) {
+    getBreweryByName(name, beerLat, beerLng);
+  }
+
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode({ address: country }, function (results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -228,6 +236,31 @@ const getBreweriesByState = async () => {
   }
 };
 
+const getBreweryByName = async (name, latitude, longitude) => {
+  
+  var newLat = parseFloat(latitude);
+  var newLng = parseFloat(longitude);
+  const pos = {
+    lat: newLat,
+    lng: newLng,
+  };
+  
+  map.setCenter(pos);
+  map.setZoom(4);
+  try {
+      const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_name=${name.toLowerCase()}`);
+      breweries = response.data;
+      if (breweries.length == 0) {
+        swal(`No brewery found?`);
+        return;
+      }
+      drop(breweries);
+    
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const drop = (breweries) => {
   deleteMarkers();
   for (let i = 0; i < breweries.length; i++) {
@@ -236,6 +269,7 @@ const drop = (breweries) => {
 };
 
 const addMarkerWithTimeout = (brewary, timeout) => {
+  
   window.setTimeout(() => {
     var iconBase = "http://maps.google.com/mapfiles/kml/paddle/";
     (marker = new google.maps.Marker({
@@ -380,15 +414,15 @@ const titleCase = (str) => {
 
 //dark mode code
 
-button.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  localStorage.setItem(
-    "theme",
-    document.body.classList.contains("dark") ? "dark" : "light"
-  );
-});
+// button.addEventListener("click", () => {
+//   document.body.classList.toggle("dark");
+//   localStorage.setItem(
+//     "theme",
+//     document.body.classList.contains("dark") ? "dark" : "light"
+//   );
+// });
 
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
-}
+// if (localStorage.getItem("theme") === "dark") {
+//   document.body.classList.add("dark");
+// }
 //end of dark mode code
