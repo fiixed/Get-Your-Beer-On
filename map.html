@@ -50,16 +50,17 @@
 
   <!-- menu -->
     <div class="dropdown">
-      <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="box-wrap">
+      <button id="box" class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           MENU
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item text-center" href="index.html">HOME</a>
         <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
       </div>
+      </div>
     </div>
   <!-- end menu -->
-
       <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
@@ -91,6 +92,7 @@
           placeholder="Enter State"
         /> -->
         <select id="dropdown">
+          <option value="">Pick a state...</option>
           <option value="alabama">Alabama</option>
           <option value="alaska">Alaska</option>
           <option value="arizona">Arizona</option>
@@ -274,7 +276,9 @@
     crossorigin="anonymous"
   ></script>
   <!-- end boot JS -->
-  
+    
+  <script src="scripts/script.js"></script>
   <script src="scripts/map.js"></script>
+
   </body>
 </html>

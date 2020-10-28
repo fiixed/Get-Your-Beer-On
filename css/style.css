@@ -95,18 +95,8 @@ hr {
   padding-top: 15px;
 }
 
-
-/* ---main animation */
-
-#comments {
-  margin: 100px;
-}
-
-#sign-up {
-  margin: 100px;
-}
-
 /* title animation */
+
 #type {
   font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
   font-weight: 200;
@@ -114,20 +104,6 @@ hr {
 }
 #type { font-size: 1.5em; }
 /* end title animation */
-
-/* ---end main animation */
-
-
-/* Set the size of the div element that contains the map */
-
-#map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
-}
-
-/* End map content */
 
 
 /* fade effect NAV */
