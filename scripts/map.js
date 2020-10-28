@@ -2,12 +2,11 @@
 // prompted by your browser. If you see the error "The Geolocation service
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
-var map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker;
+var map, infoWindow, myLat, myLng, zipCode, city, state, breweries, marker, newLat, newLng;
 var markers = [];
 let firstTime = true;
 
 function initMap() {
-  let country = "United States";
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
     minZoom: 1,
@@ -16,18 +15,13 @@ function initMap() {
   let name = sessionStorage.getItem('name');
   let beerLat = sessionStorage.getItem('lat');
   let beerLng = sessionStorage.getItem('lng');
-  if (name) {
+  console.log(name, beerLat, beerLng);
+  if (name && beerLat && beerLng) {
     getBreweryByName(name, beerLat, beerLng);
+  } else {
+    usMap();
   }
 
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode({ address: country }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-    } else {
-      swal("Could not find location: " + location);
-    }
-  });
   const locationButton = document.getElementById("location");
   locationButton.classList.add("custom-map-control-button");
   locationButton.addEventListener("click", () => {
@@ -237,22 +231,23 @@ const getBreweriesByState = async () => {
 };
 
 const getBreweryByName = async (name, latitude, longitude) => {
+  sessionStorage.clear();
+  newLat = parseFloat(latitude);
+  newLng = parseFloat(longitude);
   
-  var newLat = parseFloat(latitude);
-  var newLng = parseFloat(longitude);
-  const pos = {
-    lat: newLat,
-    lng: newLng,
-  };
-  
-  map.setCenter(pos);
-  map.setZoom(4);
   try {
       const response = await axios.get(`https://api.openbrewerydb.org/breweries?by_name=${name.toLowerCase()}`);
       breweries = response.data;
       if (breweries.length == 0) {
         swal(`No brewery found?`);
+        usMap();
         return;
+      } else if (breweries.length > 1) {
+        usMap();
+        map.setZoom(4);
+      } else {
+        map.setCenter(new google.maps.LatLng(newLat, newLng));
+        map.setZoom(12);
       }
       drop(breweries);
     
@@ -263,6 +258,7 @@ const getBreweryByName = async (name, latitude, longitude) => {
 
 const drop = (breweries) => {
   deleteMarkers();
+  
   for (let i = 0; i < breweries.length; i++) {
     addMarkerWithTimeout(breweries[i], i * 80);
   }
@@ -279,6 +275,7 @@ const addMarkerWithTimeout = (brewary, timeout) => {
       title: brewary.name,
       icon: iconBase + setIcon(brewary.brewery_type),
     })),
+    
       (infowindow = new google.maps.InfoWindow({}));
     google.maps.event.addListener(
       marker,
@@ -308,6 +305,7 @@ const addMarkerWithTimeout = (brewary, timeout) => {
     ),
       markers.push(marker);
   }, timeout);
+
 };
 
 // Sets the map on all markers in the array.
@@ -426,3 +424,15 @@ const titleCase = (str) => {
 //   document.body.classList.add("dark");
 // }
 //end of dark mode code
+
+let usMap = () => {
+  let country = "United States";
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ address: country }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+    } else {
+      swal("Could not find location: " + location);
+    }
+  });
+};
