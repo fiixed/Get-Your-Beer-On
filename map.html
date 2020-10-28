@@ -4,10 +4,10 @@
 
     <!-- tab -->
     <title>Get Your Beer On</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/title-logo/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/title-logo/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/title-logo/favicon-16x16.png">
-    <link rel="manifest" href="../images/title-logo/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/title-logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/title-logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/title-logo/favicon-16x16.png">
+    <link rel="manifest" href="images/title-logo/site.webmanifest">
     <!-- end tab -->
     
     <link
@@ -23,7 +23,6 @@
       src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
       defer
     ></script>
-    <script src="scripts/map.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- style -->
@@ -51,16 +50,17 @@
 
   <!-- menu -->
     <div class="dropdown">
-      <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div class="box-wrap">
+      <button id="box" class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           MENU
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item text-center" href="index.html">HOME</a>
         <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
       </div>
+      </div>
     </div>
   <!-- end menu -->
-
       <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
@@ -92,6 +92,7 @@
           placeholder="Enter State"
         /> -->
         <select id="dropdown">
+          <option value="">Pick a state...</option>
           <option value="alabama">Alabama</option>
           <option value="alaska">Alaska</option>
           <option value="arizona">Arizona</option>
@@ -249,10 +250,16 @@
             />
             <label for="proprietor">Proprietor</label>
           </div>
-          <!--Button for dark mode-->
-          <br />
-          <button onclick="myFunction()">Dark Mode</button>
-          <!--End button for dark mode-->
+
+  <!--Button for dark mode-->
+  <div id="dark-switch" class="custom-switch">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkMode1"></input>
+        <label class="custom-control-label" for="darkMode1">Dark Mode</label>
+      </div>
+    </div>
+  <!--End button for dark mode-->
+
         </div>
       </div>
     </div>
@@ -269,6 +276,9 @@
     crossorigin="anonymous"
   ></script>
   <!-- end boot JS -->
-  
+    
+  <script src="scripts/script.js"></script>
+  <script src="scripts/map.js"></script>
+
   </body>
 </html>
