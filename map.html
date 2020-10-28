@@ -1,30 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- tab -->
     <title>Get Your Beer On</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/title-logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/title-logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/title-logo/favicon-16x16.png">
+    <link rel="manifest" href="../images/title-logo/site.webmanifest">
+    <!-- end tab -->
+    
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/favicon_io/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon_io/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon_io/favicon-16x16.png"
-    />
-    <link rel="manifest" href="images/favicon_io/site.webmanifest" />
-
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1IUHJ6maXXRvBCQ6FPKPbQUpngPkqAoM&callback=initMap&libraries=&v=weekly"
@@ -53,24 +42,26 @@
     <!-- end style -->
   </head>
   <body>
+  
+  <!-- map -->
+  <div id="map"></div>
+  <div class="sidenav">
+  <div class="container">
+  <!-- end map -->
 
-    <div id="map"></div>
-    <div class="sidenav">
-      <div class="container">
+  <!-- menu -->
+    <div class="dropdown">
+      <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MENU
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item text-center" href="index.html">HOME</a>
+        <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
+      </div>
+    </div>
+  <!-- end menu -->
 
-        <!-- menu -->
-        <div class="dropdown">
-          <button class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              MENU
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item text-center" href="index.html">HOME</a>
-            <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
-          </div>
-        </div>
-        <!-- end menu -->
-
-        <button type="submit" id="location" class="btn btn-dark">Find Me</button>
+      <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
         <input
@@ -262,17 +253,18 @@
       </div>
     </div>
 
-    <!-- boot JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
-    <!-- end boot JS -->
+  <!-- boot JS -->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"
+  ></script>
+  <!-- end boot JS -->
+  
   </body>
 </html>
