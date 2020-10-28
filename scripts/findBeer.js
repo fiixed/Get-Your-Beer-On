@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getBeers(searchValue) {
-    const response = await axios.get(`https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${searchValue}&facet=style_name&facet=cat_name&facet=name_breweries&facet=country`)
+    const response = await axios.get(`https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${searchValue}&facet=style_name&facet=cat_name&facet=name_breweries&facet=country`);
+    console.log(response.data.records);
     return await response.data.records;
 };
 
@@ -62,7 +63,14 @@ let createBeerCard = (beer) => {
     cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
-}
+
+    cardBody.addEventListener('click', function() {
+        sessionStorage.setItem("name", beer.fields.name_breweries);
+        sessionStorage.setItem("lat", beer.fields.coordinates[0]);
+        sessionStorage.setItem("lng", beer.fields.coordinates[1]);
+        window.open("map.html");
+    });
+};
 
 //This function will render the previously created beer cards to the screen
 let initListOfBeers = () => {
