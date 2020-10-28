@@ -3,6 +3,7 @@ let beerSearchData, cardContainer;
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('search-form').addEventListener('submit', async e => {
         e.preventDefault();
+        document.getElementById('card-container').innerHTML = '';
         let searchString = document.querySelector('.search-bar').value;
         let urlEncodedSearchString = encodeURIComponent(searchString);
         beerSearchData = await getBeers(urlEncodedSearchString);
@@ -18,8 +19,7 @@ async function getBeers(searchValue) {
     return await response.data.records;
 };
 
-getBeers('dog').then(result => console.log(result))
-
+//This function will create a "card" for each beer result returned from the API
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
     let card = document.createElement('div');
@@ -32,18 +32,39 @@ let createBeerCard = (beer) => {
     title.innerText = beer.fields.name;
     title.className = 'card-title';
 
-    let style = document.createElement('p');
-    style.innerText = beer.fields.style_name;
-    style.className = '';
+    let styleOfBeer = document.createElement('p');
+    styleOfBeer.innerText = beer.fields.style_name;
+    styleOfBeer.className = 'card-text';
 
+    let cityState = document.createElement('p');
+    cityState.innerText = `${beer.fields.city}, ${beer.fields.state}`;
+    cityState.className = 'card-text';
+
+    let country = document.createElement('p');
+    country.innerText = beer.fields.country;
+    country.className = 'card-text';
 
     cardBody.appendChild(title);
-    cardBody.appendChild(style);
+
+    cardBody.appendChild(styleOfBeer);
+    if(styleOfBeer.innerText == 'undefined') {
+        styleOfBeer.innerText = '';
+    }
+
+    cardBody.appendChild(cityState);
+    if(beer.fields.city == undefined) {
+        cityState.innerText = beer.fields.state;
+    }
+    if(beer.fields.state == undefined) {
+        cityState.innerText = beer.fields.city;
+    }
+
+    cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
-
 }
 
+//This function will render the previously created beer cards to the screen
 let initListOfBeers = () => {
     if (cardContainer) {
         document.getElementById('card-container').replaceWith(cardContainer);
@@ -52,6 +73,17 @@ let initListOfBeers = () => {
 
     cardContainer = document.getElementById('card-container');
     beerSearchData.forEach((beer) => {
-        createTaskCard(beer);
+        createBeerCard(beer);
     });
 };
+
+function styleFilter() {
+    let styleDropdown = document.getElementById('styleOfBeer');
+    let firstOption = document.createElement('a');
+    firstOption.className = 'dropdown-item';
+    firstOption.href = '#';
+    firstOption.innerText = 'test'
+    styleDropdown.appendChild(firstOption);
+}
+
+styleFilter()
