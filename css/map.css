@@ -127,14 +127,7 @@ button {
   background-color: #f04741;
 }
 
-/* Light mode */
-body {
-  background: #fff;
-  color: #000;
-}
-
-/* Dark mode */
-body.dark {
-  background: #000;
-  color: #fff;
+#dark-switch {
+  margin-left: -14%;
+  margin-bottom: 5%;
 }

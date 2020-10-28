@@ -23,7 +23,6 @@
       src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
       defer
     ></script>
-    <script src="scripts/map.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- style -->
@@ -249,10 +248,16 @@
             />
             <label for="proprietor">Proprietor</label>
           </div>
-          <!--Button for dark mode-->
-          <br />
-          <button onclick="myFunction()">Dark Mode</button>
-          <!--End button for dark mode-->
+
+  <!--Button for dark mode-->
+  <div id="dark-switch" class="custom-switch">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="darkMode1"></input>
+        <label class="custom-control-label" for="darkMode1">Dark Mode</label>
+      </div>
+    </div>
+  <!--End button for dark mode-->
+
         </div>
       </div>
     </div>
@@ -270,5 +275,6 @@
   ></script>
   <!-- end boot JS -->
   
+  <script src="scripts/map.js"></script>
   </body>
 </html>
