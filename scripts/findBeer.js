@@ -51,6 +51,10 @@ let createBeerCard = (beer) => {
     styleOfBeer.innerText = beer.fields.style_name;
     styleOfBeer.className = 'card-text';
 
+    let breweryName = document.createElement('p')
+    breweryName.innerText = beer.fields.name_breweries;
+    breweryName.className = 'card-text';
+
     let cityState = document.createElement('p');
     cityState.innerText = `${beer.fields.city}, ${beer.fields.state}`;
     cityState.className = 'card-text';
@@ -65,6 +69,8 @@ let createBeerCard = (beer) => {
     if(styleOfBeer.innerText == 'undefined') {
         styleOfBeer.innerText = '';
     }
+
+    cardBody.appendChild(breweryName);
 
     cardBody.appendChild(cityState);
     if(beer.fields.city == undefined) {
