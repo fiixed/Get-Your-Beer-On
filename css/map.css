@@ -1,7 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+body {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+}
+
+hr {
+  border-top: 1px solid black;
+}
+
+.swal-overlay {
+  background-color: rgba(233, 47, 50, 0.45);
+}
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: rgb(246, 174, 10);
+  font-size: 12px;
+  border: 1px solid #3e549a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+
+/* Style page content */
 #map {
   height: 100%;
+  width: 80%;
+  padding: 0px 10px;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 20%;
+  min-width: 150px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: rgb(246, 174, 10); /* Grey */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 10px;
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -25,6 +64,101 @@ body {
   font: 400 18px Roboto, Arial, sans-serif;
   overflow: hidden;
 }
-.custom-map-control-button:hover {
-  background: #ebebeb;
+
+.square {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+  border: 2px solid black;
 }
+
+.check {
+  margin-right: 5px;
+  background-color: #000;
+}
+
+.checkboxes {
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+#location {
+  background-color: #000;
+  color: #fff;
+  margin-left: -1%;
+  width: 100%;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#white {
+  background-color: #fff;
+}
+
+#blue {
+  background-color: #4365fd;
+}
+
+#ltblue {
+  background-color: #88ffe5;
+}
+
+#yellow {
+  background-color: #fcf649;
+}
+
+#pink {
+  background-color: #f14e8c;
+}
+
+#green {
+  background-color: #52ff69;
+}
+
+#purple {
+  background-color: #6b36fe;
+}
+
+#red {
+  background-color: #f04741;
+}
+
+#dark-switch {
+  margin-left: -14%;
+  margin-bottom: 5%;
+}
+
+/* fade effect NAV */
+
+.box-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
+}
+#box {
+  padding: 5px;
+  background-color: rgb(246, 174, 10);
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.2s all;
+}
+.box-wrap:hover #box {
+  filter: blur(2px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
+}
+.box-wrap:hover #box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* end fade effect NAV */
