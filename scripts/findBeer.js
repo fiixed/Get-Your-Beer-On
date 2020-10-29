@@ -1,22 +1,36 @@
 let beerSearchData, cardContainer;
 
+let styleArray = [];
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('search-form').addEventListener('submit', async e => {
         e.preventDefault();
         document.getElementById('card-container').innerHTML = '';
+        document.getElementById('styleOfBeer').innerHTML = '';
+        styleArray = [];
         let searchString = document.querySelector('.search-bar').value;
         let urlEncodedSearchString = encodeURIComponent(searchString);
         beerSearchData = await getBeers(urlEncodedSearchString);
         beerSearchData.forEach((beer) => {
             createBeerCard(beer);
         });
+        //This for loop will get all of the unique styles of beers that the user searched for
+        for (let i = 0; i < beerSearchData.length; i++) {
+            if (beerSearchData[i].fields.style_name == undefined) {
+                continue;
+            }
+            styleArray.push(beerSearchData[i].fields.style_name);
+        };
+        styleArray.filter(unique);
+        styleFilter(styleArray);
+
         initListOfBeers();
     });
+    console.log(styleArray);
 });
 
 async function getBeers(searchValue) {
     const response = await axios.get(`https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${searchValue}&facet=style_name&facet=cat_name&facet=name_breweries&facet=country`);
-    console.log(response.data.records);
     return await response.data.records;
 };
 
@@ -85,13 +99,19 @@ let initListOfBeers = () => {
     });
 };
 
-function styleFilter() {
-    let styleDropdown = document.getElementById('styleOfBeer');
-    let firstOption = document.createElement('a');
-    firstOption.className = 'dropdown-item';
-    firstOption.href = '#';
-    firstOption.innerText = 'test'
-    styleDropdown.appendChild(firstOption);
-}
+const unique = (value, index, self) => {
+    return self.indexOf(value) === index;
+};
 
-styleFilter()
+//This function will set the style dropdowns to the unique list of beers the user searched for
+let styleFilter = (styleArray) => {
+    let styleDropdown = document.getElementById('styleOfBeer'); //this is somehow applying to both dropdowns?
+    styleArray.forEach((beer) => {
+        let option = document.createElement('a');
+        option.className = 'dropdown-item';
+        option.href = '#';
+        option.innerText = beer;
+        //need to add click event listener to filter results
+        styleDropdown.appendChild(option);
+    });
+};
