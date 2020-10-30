@@ -49,18 +49,23 @@
   <!-- end map -->
 
   <!-- menu -->
-    <div class="dropdown">
-      <div class="box-wrap">
-      <button id="box" class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          MENU
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item text-center" href="index.html">HOME</a>
-        <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div id="menu" class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <div class="box-wrap">
+        <li id="box" class="nav-item active">
+          <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+        </li>
+        <li id="box"class="nav-item active">
+          <a class="nav-link" href="map.html">MAP</a>
+        </li>
+        <li id="box" class="nav-item active">
+          <a class="nav-link" href="findBeer.html">F.A.B</a>
+        </li>
       </div>
-      </div>
-    </div>
+  </nav>
   <!-- end menu -->
+
       <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
@@ -250,6 +255,7 @@
             />
             <label for="proprietor">Proprietor</label>
           </div>
+          <hr />
 
   <!--Button for dark mode-->
   <div id="dark-switch" class="custom-switch">

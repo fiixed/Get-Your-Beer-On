@@ -47,7 +47,7 @@ async function getBeers(searchValue) {
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
     let card = document.createElement('div');
-    card.className = 'card shadow cursor-pointer';
+    card.className = 'card mb-3 rounded cursor-pointer';
 
     let cardBody = document.createElement('div');
     cardBody.className = 'card-body';
