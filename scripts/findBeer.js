@@ -1,32 +1,41 @@
 let beerSearchData, cardContainer;
 
-let styleArray = [];
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('search-form').addEventListener('submit', async e => {
         e.preventDefault();
         document.getElementById('card-container').innerHTML = '';
         document.getElementById('styleOfBeer').innerHTML = '';
+        document.getElementById('countryOfBeer').innerHTML = '';
         styleArray = [];
+        countryArray = [];
         let searchString = document.querySelector('.search-bar').value;
         let urlEncodedSearchString = encodeURIComponent(searchString);
         beerSearchData = await getBeers(urlEncodedSearchString);
         beerSearchData.forEach((beer) => {
             createBeerCard(beer);
         });
-        //This for loop will get all of the unique styles of beers that the user searched for
+        //This for loop will get all of the styles of beers that the user searched for
         for (let i = 0; i < beerSearchData.length; i++) {
             if (beerSearchData[i].fields.style_name == undefined) {
                 continue;
-            }
+            };
             styleArray.push(beerSearchData[i].fields.style_name);
         };
-        styleArray.filter(unique);
+        styleArray = styleArray.filter(unique);
         styleFilter(styleArray);
+
+        //This for loop will get all of the countries of beer that the user searched for
+        for (let i = 0; i < beerSearchData.length; i++) {
+            if (beerSearchData[i].fields.country == undefined) {
+                continue;
+            };
+            countryArray.push(beerSearchData[i].fields.country);
+        };
+        countryArray = countryArray.filter(unique);
+        countryFilter(countryArray);
 
         initListOfBeers();
     });
-    console.log(styleArray);
 });
 
 async function getBeers(searchValue) {
@@ -109,15 +118,46 @@ const unique = (value, index, self) => {
     return self.indexOf(value) === index;
 };
 
-//This function will set the style dropdowns to the unique list of beers the user searched for
+//This function will set the style dropdown to the unique styles of beers the user searched for
 let styleFilter = (styleArray) => {
-    let styleDropdown = document.getElementById('styleOfBeer'); //this is somehow applying to both dropdowns?
+    let styleDropdown = document.getElementById('styleOfBeer');
     styleArray.forEach((beer) => {
         let option = document.createElement('a');
         option.className = 'dropdown-item';
         option.href = '#';
         option.innerText = beer;
-        //need to add click event listener to filter results
+        option.addEventListener('click', () => {
+            let styleFilteredBeer = beerSearchData.filter((i) => {
+                return i.fields.style_name == beer;
+            });
+            document.getElementById('card-container').innerHTML = '';
+            styleFilteredBeer.forEach((newBeer) => {
+                createBeerCard(newBeer);
+            });
+            initListOfBeers();
+        });
         styleDropdown.appendChild(option);
+    });
+};
+
+//This function will set the country dropdown to the unique countries of beers the user searched for
+let countryFilter = (countryArray) => {
+    let countryDropdown = document.getElementById('countryOfBeer');
+    countryArray.forEach((beer) => {
+        let option = document.createElement('a');
+        option.className = 'dropdown-item';
+        option.href = '#';
+        option.innerText = beer;
+        option.addEventListener('click', () => {
+            let countryFilteredBeer = beerSearchData.filter((i) => {
+                return i.fields.country == beer;
+            });
+            document.getElementById('card-container').innerHTML = '';
+            countryFilteredBeer.forEach((newBeer) => {
+                createBeerCard(newBeer);
+            });
+            initListOfBeers();
+        });
+        countryDropdown.appendChild(option);
     });
 };

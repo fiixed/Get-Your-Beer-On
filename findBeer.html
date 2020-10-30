@@ -75,22 +75,26 @@
         </div>
       </form>
       <hr>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Style
-        </button>
-        <div class="dropdown-menu" id="styleOfBeer">
-          <!-- unique styles of beer will display here -->
+      <div class="filterDropdowns">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Style
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="styleOfBeer">
+            <!-- styles display here -->
+          </div>
         </div>
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Country
-        </button>
-        <div class="dropdown-menu" id="countryOfBeer">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Country
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="countryOfBeer">
+            <!-- countries display -->
+          </div>
         </div>
       </div>
+
+
       <div id="card-container" onclick="">
 
       </div>
