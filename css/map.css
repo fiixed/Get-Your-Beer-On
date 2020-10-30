@@ -136,7 +136,7 @@ button {
   margin-bottom: 5%;
 }
 
-/* fade effect NAV */
+/* fade effect menu */
 
 .box-wrap{
   display:flex;
@@ -144,6 +144,7 @@ button {
   justify-content:center;
   margin:5%;
 }
+
 #box{
   padding: 5px;
   background-color: rgb(246, 174, 10);
@@ -155,17 +156,33 @@ button {
   margin-bottom: -5%;
   margin-top: -5%;
 }
+
 .box-wrap:hover #box{
   filter:blur(2px);
   opacity:.5;
   transform: scale(.98);
   box-shadow:none;
 }
+
 .box-wrap:hover #box:hover{
   transform:scale(1);
   filter:blur(0px);
   opacity:1;
-  box-shadow:0 8px 20px 0px rgba(0,0,0,0.50);
+  box-shadow:0 8px 20px 0px rgba(0,0,0,0.5);
 }
 
-/* end fade effect NAV */
+/* end fade effect menu */
+
+#menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#menu-b {
+  box-shadow:0 8px 75px 0px rgba(0,0,0,0.7);
+}
+
+#menu-i {
+  color: #000;
+  border-radius: 10%;
+}
