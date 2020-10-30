@@ -16,7 +16,6 @@ function initMap() {
   let name = sessionStorage.getItem('name');
   let beerLat = sessionStorage.getItem('lat');
   let beerLng = sessionStorage.getItem('lng');
-  console.log(name, beerLat, beerLng);
   if (name && beerLat && beerLng) {
     getBreweryByName(name, beerLat, beerLng);
   } else {
@@ -163,8 +162,12 @@ const getBreweriesByZip = async () => {
       `https://api.openbrewerydb.org/breweries?by_postal=${postal}`
     );
     breweries = response.data;
+    console.log(breweries);
     if (breweries.length == 0) {
       swal(`No results in ${postal}, please widen your search`);
+      return;
+    } else if (breweries.length == 1 && breweries[0].latitude == null) {
+      swal(`Sorry! No co-ordinates given for the only brewery in this zipcode: ${postal}, the breweries name is: ${breweries[0].name}`);
       return;
     }
     drop(breweries);
