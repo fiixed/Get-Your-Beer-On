@@ -162,7 +162,6 @@ const getBreweriesByZip = async () => {
       `https://api.openbrewerydb.org/breweries?by_postal=${postal}`
     );
     breweries = response.data;
-    console.log(breweries);
     if (breweries.length == 0) {
       swal(`No results in ${postal}, please widen your search`);
       return;
