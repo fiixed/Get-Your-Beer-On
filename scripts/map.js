@@ -747,3 +747,17 @@ let usMap = () => {
     }
   });
 };
+
+let zipField = document.getElementById("zip");
+zipField.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+    getBreweriesByZip();
+    }
+});
+
+let cityField = document.getElementById("city");
+cityField.addEventListener("keyup", (e) => {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+    getBreweriesByCity();
+    }
+});
