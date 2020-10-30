@@ -145,3 +145,8 @@ hr {
   box-shadow:0 0px 75px 0px rgb(246, 174, 10);
   background: rgb(246, 174, 10, .5);
 }
+
+.filterDropdowns {
+  display: flex;
+  justify-content: flex-start;
+}
