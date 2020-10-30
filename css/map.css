@@ -162,3 +162,10 @@ button {
 }
 
 /* end fade effect NAV */
+
+/* centering dark-mode */
+
+.custom-switch {
+  margin: auto;
+  text-align: center;
+}
