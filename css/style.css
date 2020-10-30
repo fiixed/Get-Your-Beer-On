@@ -136,3 +136,7 @@ hr {
 
 /* end fade effect NAV */
 
+.filterDropdowns {
+  display: flex;
+  justify-content: flex-start;
+}
