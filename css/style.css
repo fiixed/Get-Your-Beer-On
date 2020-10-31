@@ -178,3 +178,8 @@ hr {
 .card-body {
   background-color: white;
 }
+
+.img-fluid {
+  width: 250px;
+  float: right;
+}
