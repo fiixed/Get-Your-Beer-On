@@ -25,7 +25,6 @@ hr {
 }
 /* end sweet alert */
 
-
 /* Style page content */
 #map {
   height: 100%;
@@ -33,7 +32,6 @@ hr {
   padding: 0px 10px;
 }
 /* end Style page content */
-
 
 /* side nav */
 .sidenav {
@@ -53,7 +51,6 @@ hr {
 }
 /* end side nav */
 
-
 /* map control */
 .custom-map-control-button {
   appearance: button;
@@ -70,7 +67,6 @@ hr {
 }
 /* end map control */
 
-
 /* location filter buttons */
 button {
   background-color: #000;
@@ -79,7 +75,6 @@ button {
   margin-bottom: 10px;
 }
 /* end location filter buttons */
-
 
 /* checkbox filters */
 .square {
@@ -101,7 +96,6 @@ button {
 }
 /* end checkbox filters */
 
-
 /* find me button */
 #location {
   font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
@@ -111,7 +105,6 @@ button {
   width: 100%;
 }
 /* end find me button */
-
 
 /* colors */
 #white {
@@ -140,15 +133,14 @@ button {
 }
 /* end colors */
 
-
 /* fade effect on box elements */
-.box-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:5%;
+.box-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5%;
 }
-#box{
+#box {
   padding: 5px;
   background-color: rgb(246, 174, 10);
   width: 100%;
@@ -159,20 +151,19 @@ button {
   margin-bottom: -5%;
   margin-top: -5%;
 }
-.box-wrap:hover #box{
-  filter:blur(2px);
-  opacity:.5;
-  transform: scale(.98);
-  box-shadow:none;
+.box-wrap:hover #box {
+  filter: blur(2px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
 }
-.box-wrap:hover #box:hover{
-  transform:scale(1);
-  filter:blur(0px);
-  opacity:1;
-  box-shadow:0 8px 20px 0px rgba(0,0,0,0.5);
+.box-wrap:hover #box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.5);
 }
 /* end fade effect on box elements */
-
 
 /* map nav */
 #menu {
@@ -188,7 +179,6 @@ button {
 }
 /* end map nav */
 
-
 /* dark mode button */
 #dark-switch {
   display: flex;
@@ -198,7 +188,6 @@ button {
 }
 /* end dark mode button */
 
-
 /* custom check boxes */
 .custom-control-input {
   background-color: #000;
@@ -207,8 +196,10 @@ button {
 }
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-color: black;
+  border: none;
 }
 .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
   background-color: black;
+  border: none;
 }
 /* end custom check boxes */
