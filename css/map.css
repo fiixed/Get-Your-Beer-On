@@ -47,6 +47,9 @@ hr {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
 }
+.sidenav:hover {
+  background-color: rgb(246, 174, 10);
+}
 /* end side nav */
 
 
@@ -84,16 +87,16 @@ button {
   margin-right: 5px;
   border: 2px solid black;
 }
-
 .check {
   margin-right: 5px;
+  margin-left: 5px;
   background-color: #000;
 }
-
 .checkboxes {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
+  padding-left: 0;
 }
 /* end checkbox filters */
 
@@ -104,7 +107,7 @@ button {
   background-color: #000;
   color: #fff;
   margin-left: -1%;
- width: 100%;
+  width: 100%;
 }
 /* end find me button */
 
@@ -113,31 +116,24 @@ button {
 #white {
   background-color: #fff;
 }
-
 #blue {
   background-color: #4365fd;
 }
-
 #ltblue {
   background-color: #88ffe5;
 }
-
 #yellow {
   background-color: #fcf649;
 }
-
 #pink {
   background-color: #f14e8c;
 }
-
 #green {
   background-color: #52ff69;
 }
-
 #purple {
   background-color: #6b36fe;
 }
-
 #red {
   background-color: #f04741;
 }
@@ -154,9 +150,9 @@ button {
 #box{
   padding: 5px;
   background-color: rgb(246, 174, 10);
-  width:100%;
-  border-radius:5px;
-  transition:.2s all;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.2s all;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: -5%;
@@ -183,7 +179,7 @@ button {
   justify-content: flex-end;
 }
 #menu-b {
-  box-shadow:0 8px 75px 0px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 75px 0px rgba(0, 0, 0, 0.7);
 }
 #menu-i {
   color: #000;
@@ -200,3 +196,18 @@ button {
   margin-bottom: 5%;
 }
 /* end dark mode button */
+
+
+/* custom check boxes */
+.custom-control-input {
+  background-color: #000;
+  color: #000;
+  position: relative;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: black;
+}
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: black;
+}
+/* end custom check boxes */
