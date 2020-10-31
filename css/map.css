@@ -42,6 +42,9 @@ hr {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 10px;
 }
+.sidenav:hover {
+  background-color: rgb(246, 174, 10);
+}
 
 /* Optional: Makes the sample page fill the window. */
 html,
@@ -74,6 +77,7 @@ body {
 
 .check {
   margin-right: 5px;
+  margin-left: 5px;
   background-color: #000;
 }
 
@@ -81,9 +85,11 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: baseline;
+  padding-left: 0;
 }
 
 #location {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
   background-color: #000;
   color: #fff;
   margin-left: -1%;
@@ -129,11 +135,13 @@ button {
 }
 
 #dark-switch {
-  margin-left: -14%;
+  display: flex;
+  justify-content: center;
+  margin-left: -15%;
   margin-bottom: 5%;
 }
 
-/* fade effect NAV */
+/* fade effect menu */
 
 .box-wrap {
   display: flex;
@@ -147,13 +155,19 @@ button {
   width: 100%;
   border-radius: 5px;
   transition: 0.2s all;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: -5%;
+  margin-top: -5%;
 }
+
 .box-wrap:hover #box {
   filter: blur(2px);
   opacity: 0.5;
   transform: scale(0.98);
   box-shadow: none;
 }
+
 .box-wrap:hover #box:hover {
   transform: scale(1);
   filter: blur(0px);
@@ -161,4 +175,32 @@ button {
   box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* end fade effect NAV */
+/* end fade effect menu */
+
+#menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#menu-b {
+  box-shadow: 0 8px 75px 0px rgba(0, 0, 0, 0.7);
+}
+
+#menu-i {
+  color: #000;
+  border-radius: 10%;
+}
+
+.custom-control-input {
+  background-color: #000;
+  color: #000;
+  position: relative;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: black;
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: black;
+}
