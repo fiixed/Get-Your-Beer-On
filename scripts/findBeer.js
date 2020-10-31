@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         beerSearchData.forEach((beer) => {
             createBeerCard(beer);
         });
+
         //This for loop will get all of the styles of beers that the user searched for
         for (let i = 0; i < beerSearchData.length; i++) {
             if (beerSearchData[i].fields.style_name == undefined) {
@@ -38,12 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//A function to get our results returned from the API using Axios
 async function getBeers(searchValue) {
     const response = await axios.get(`https://data.opendatasoft.com/api/records/1.0/search/?dataset=open-beer-database%40public-us&q=${searchValue}&facet=style_name&facet=cat_name&facet=name_breweries&facet=country`);
     return await response.data.records;
 };
 
-//This function will create a "card" for each beer result returned from the API
+//This function will create a HTML divs for each beer result returned from the API and place them into the card container div, rather than writing template literal HTML
 let createBeerCard = (beer) => {
     let cardContainer = document.getElementById('card-container');
     let card = document.createElement('div');
@@ -77,23 +79,23 @@ let createBeerCard = (beer) => {
     cardBody.appendChild(styleOfBeer);
     if(styleOfBeer.innerText == 'undefined') {
         styleOfBeer.innerText = '';
-    }
+    };
 
     cardBody.appendChild(breweryName);
 
     cardBody.appendChild(cityState);
     if(beer.fields.city == undefined) {
         cityState.innerText = beer.fields.state;
-    }
+    };
     if(beer.fields.state == undefined) {
         cityState.innerText = beer.fields.city;
-    }
+    };
 
     cardBody.appendChild(country);
     card.appendChild(cardBody);
     cardContainer.appendChild(card);
 
-    cardBody.addEventListener('click', function() {
+    cardBody.addEventListener('click', () => {
         sessionStorage.setItem("name", beer.fields.name_breweries);
         sessionStorage.setItem("lat", beer.fields.coordinates[0]);
         sessionStorage.setItem("lng", beer.fields.coordinates[1]);
@@ -106,7 +108,7 @@ let initListOfBeers = () => {
     if (cardContainer) {
         document.getElementById('card-container').replaceWith(cardContainer);
         return;
-    }
+    };
 
     cardContainer = document.getElementById('card-container');
     beerSearchData.forEach((beer) => {
@@ -114,6 +116,7 @@ let initListOfBeers = () => {
     });
 };
 
+//Simple function to return the unique results of an array. Used for style and country
 const unique = (value, index, self) => {
     return self.indexOf(value) === index;
 };
