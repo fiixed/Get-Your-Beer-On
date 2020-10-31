@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+html,
 body {
   font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
   height: 100%;
