@@ -20,7 +20,7 @@ Our Find A Beer page allows users to search for beers by name. The results are r
 
 ## Technologies
 
-[Bootstrap](https://getbootstrap.com/), [Axios](https://github.com/axios/axios), [JQuery](https://jquery.com/) [SweetAlert.js](https://sweetalert.js.org/)
+[Bootstrap](https://getbootstrap.com/), [Axios](https://github.com/axios/axios), [JQuery](https://jquery.com/), [SweetAlert.js](https://sweetalert.js.org/)
 
 ## Status
 
