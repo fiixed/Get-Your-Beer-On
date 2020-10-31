@@ -47,18 +47,26 @@
         <!-- end map -->
 
   <!-- menu -->
-    <div class="dropdown">
-      <div class="box-wrap">
-      <button id="box" class="btn float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          MENU
+  <div id="menu" class="btn-group">
+    <div class="box-wrap">
+    <button id="box" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Menu
+    </button>
+    <div id="menu-b" class="dropdown-menu dropdown-menu-right bg-light">
+      <button class="dropdown-item text-center" type="button">
+        <a id="menu-i" class="nav-link" href="index.html">HOME</a>
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item text-center" href="index.html">HOME</a>
-        <a class="dropdown-item text-center" href="findBeer.html">F.A.B</a>
-      </div>
-      </div>
+      <button class="dropdown-item text-center" type="button">
+        <a id="menu-i" class="nav-link" href="map.html">MAP</a>
+      </button>
+      <button class="dropdown-item text-center" type="button">
+        <a id="menu-i" class="nav-link" href="findBeer.html">F.A.B</a>
+      </button>
     </div>
+  </div>
+  </div>
   <!-- end menu -->
+
       <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
@@ -169,7 +177,7 @@
             <div class="square" id="red"></div>
             <input
               class="check"
-              type="checkbox"
+              type="checkbox" 
               id="micro"
               name="filter"
               value="micro"
@@ -263,6 +271,7 @@
             />
             <label for="proprietor">Proprietor</label>
           </div>
+          <hr />
 
   <!--Button for dark mode-->
   <div id="dark-switch" class="custom-switch">
@@ -290,7 +299,7 @@
   ></script>
   <!-- end boot JS -->
     
-  <script src="scripts/script.js"></script>
+  <!-- <script src="scripts/script.js"></script> -->
   <script src="scripts/map.js"></script>
 
   </body>

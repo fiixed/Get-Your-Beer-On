@@ -84,6 +84,7 @@ body {
 }
 
 #location {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
   background-color: #000;
   color: #fff;
   margin-left: -1%;
@@ -129,11 +130,13 @@ button {
 }
 
 #dark-switch {
-  margin-left: -14%;
+  display: flex;
+  justify-content: center;
+  margin-left: -15%;
   margin-bottom: 5%;
 }
 
-/* fade effect NAV */
+/* fade effect menu */
 
 .box-wrap {
   display: flex;
@@ -162,3 +165,48 @@ button {
 }
 
 /* end fade effect NAV */
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: -5%;
+  margin-top: -5%;
+}
+
+.box-wrap:hover #box {
+  filter: blur(2px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.box-wrap:hover #box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* end fade effect menu */
+
+#menu {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#menu-b {
+  box-shadow: 0 8px 75px 0px rgba(0, 0, 0, 0.7);
+}
+
+#menu-i {
+  color: #000;
+  border-radius: 10%;
+}
+
+.custom-control-input {
+  background-color: #000;
+  color: #000;
+}
+
+input[type='checkbox'] {
+  color: #000;
+}
+
