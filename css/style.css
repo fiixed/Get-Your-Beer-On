@@ -183,3 +183,11 @@ hr {
   width: 250px;
   float: right;
 }
+
+.text-uppercase {
+  color: #000;
+}
+
+#underline {
+  text-decoration: none;
+}
