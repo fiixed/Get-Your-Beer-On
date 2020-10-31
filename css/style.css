@@ -1,3 +1,13 @@
+body {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+}
+
+hr {
+  border-top: 1px solid black;
+}
+
+
+/* scrolling background image */
 html {
   padding-left: 150px;
   padding-right: 150px;
@@ -9,46 +19,30 @@ html {
 	animation: 20s linear 0s normal none infinite animate;
  
 }
- 
 @-webkit-keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 500px 0;}
 }
- 
 @-moz-keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 500px 0;}
 }
- 
 @-ms-keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 500px 0;}
 }
- 
 @-o-keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 500px 0;}
 }
- 
 @keyframes animate {
 	from {background-position:0 0;}
 	to {background-position: 500px 0;}
 }
-/* end html style */
+/* end scrolling background image */
 
 
-body {
-  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
-}
-
-hr {
-  border-top: 1px solid black;
-}
-
-#home-search {
-  margin: 10px;
-}
-
+/* header style */
 #header {
   background-color: rgb(246, 174, 10);
   background-size: 100%;
@@ -56,65 +50,17 @@ hr {
   background-repeat: no-repeat;
   text-align: center;
 }
-
 #menu {
   display: flex;
   justify-content: flex-end;
 }
-
-#home-main {
-  margin: 100px;
-}
-
-.container-fluid {
-  margin: 2em;
-}
-
-#footer{
-  background-color: rgb(246, 174, 10);
-  margin-bottom: -1%;
-}
-
-.foot-title {
-  display: flex;
-  justify-content: center;
-  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
-}
-
-.social {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.copyright {
-  font-size: small;
-  display: flex;
-  justify-content: center;
-  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
-  padding-top: 15px;
-}
-
-/* title animation */
-
-#type {
-  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
-  font-weight: 200;
-  margin: 0.4em 0;
-}
-#type { font-size: 1.5em; }
-/* end title animation */
-
-
-/* fade effect NAV */
-
+/* ==fade effect=== */
 .box-wrap{
   display:flex;
   align-items:center;
   justify-content:center;
   margin: 5%;
 }
-
 #box{
   margin-right: 20px;
   padding: 2%;
@@ -123,30 +69,69 @@ hr {
   border-radius: 5px;
   transition:.2s all;
 }
-
 .box-wrap:hover #box{
   filter:blur(2px);
   opacity:.5;
   transform: scale(.98);
   box-shadow:none;
 }
-
 .box-wrap:hover #box:hover{
   transform:scale(1);
   filter:blur(0px);
   opacity:1;
   box-shadow:0 8px 20px 0px rgba(0,0,0,0.50);
 }
+/* ==end fade effect== */
+/* ==typing animation== */
+#type {
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+  font-weight: 200;
+  margin: 0.4em 0;
+}
+#type { font-size: 1.5em; }
+/* ===end typing animation=== */
+/* end header style */
 
-/* end fade effect NAV */
 
+/* footer style */
+#footer{
+  background-color: rgb(246, 174, 10);
+  margin-bottom: -1%;
+}
+.foot-title {
+  display: flex;
+  justify-content: center;
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+}
+.social {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.copyright {
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  font-family: "SF Mono", "Roboto Mono", "Menlo", monospace;
+  padding-top: 15px;
+}
+/* end footer style */
+
+
+/* index main content */
+#home-main {
+  margin: 100px;
+}
+/* end index main content */
+
+/* F.A.B styling for cards */
 #card-container {
   margin-top: 2%;
   box-shadow:0 0px 75px 0px rgb(246, 174, 10);
   background: rgb(246, 174, 10, .5);
 }
-
 .filterDropdowns {
   display: flex;
   justify-content: flex-start;
 }
+/* end F.A.B styling for cards */

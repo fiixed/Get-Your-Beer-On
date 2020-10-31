@@ -2,13 +2,13 @@
 <html>
   <head>
 
-    <!-- tab -->
+  <!-- tab -->
     <title>Get Your Beer On</title>
     <link rel="apple-touch-icon" sizes="180x180" href="images/title-logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/title-logo/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/title-logo/favicon-16x16.png">
     <link rel="manifest" href="images/title-logo/site.webmanifest">
-    <!-- end tab -->
+  <!-- end tab -->
     
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,400&display=swap"
@@ -43,32 +43,37 @@
   <body>
   
   <!-- map -->
-  <div id="map"></div>
-  <div class="sidenav">
-  <div class="container">
+  <div id="map">
+    <!-- map is passed in through here -->
+  </div>
   <!-- end map -->
 
+  <!-- side nav content -->
   <!-- menu -->
+  <div class="sidenav">
+    <div class="container">
+
   <div id="menu" class="btn-group">
     <div class="box-wrap">
-    <button id="box" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button id="box" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Menu
-    </button>
-    <div id="menu-b" class="dropdown-menu dropdown-menu-right bg-light">
-      <button class="dropdown-item text-center" type="button">
-        <a id="menu-i" class="nav-link" href="index.html">HOME</a>
       </button>
-      <button class="dropdown-item text-center" type="button">
-        <a id="menu-i" class="nav-link" href="map.html">MAP</a>
-      </button>
-      <button class="dropdown-item text-center" type="button">
-        <a id="menu-i" class="nav-link" href="findBeer.html">F.A.B</a>
-      </button>
+      <div id="menu-b" class="dropdown-menu dropdown-menu-right bg-light">
+        <button class="dropdown-item text-center" type="button">
+          <a id="menu-i" class="nav-link" href="index.html">HOME</a>
+        </button>
+        <button class="dropdown-item text-center" type="button">
+          <a id="menu-i" class="nav-link" href="map.html">MAP</a>
+        </button>
+        <button class="dropdown-item text-center" type="button">
+          <a id="menu-i" class="nav-link" href="findBeer.html">F.A.B</a>
+        </button>
+      </div>
     </div>
-  </div>
   </div>
   <!-- end menu -->
 
+  <!-- map navigation buttons -->
       <button type="submit" id="location" class="btn btn-dark">Find Me</button>
         <hr />
         <label for="">Search By:</label><br />
@@ -156,8 +161,10 @@
         <button type="submit" id="stateButton" onclick="getBreweriesByState();" class="btn btn-dark active">
           State
         </button>
+    <!-- end map navigation buttons -->
         <br />
         <hr />
+    <!-- map filters -->
         <div class="tags">
           <label for="">Filter By:</label><br />
           <div class="checkboxes">
@@ -259,6 +266,7 @@
             <label for="proprietor">Proprietor</label>
           </div>
           <hr />
+  <!-- end map filters -->
 
   <!--Button for dark mode-->
   <div id="dark-switch" class="custom-switch">
@@ -272,6 +280,7 @@
         </div>
       </div>
     </div>
+  <!-- end side nav content -->
 
   <!-- boot JS -->
   <script

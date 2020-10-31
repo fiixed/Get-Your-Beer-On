@@ -1,5 +1,4 @@
-// animation
-
+// main animation
 const animateCSS = (element, animation, prefix = 'animate__') =>
 // We create a Promise and return it
 new Promise((resolve, reject) => {
@@ -22,10 +21,9 @@ new Promise((resolve, reject) => {
         element.style.setProperty('--animate-duration', '1.5s');
     // end delayed elements
 
-// end animation
+// end main animation
 
-// type animation
-
+// typing animation
 var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
@@ -78,8 +76,7 @@ window.onload = function() {
   }
   // INJECT CSS
   var css = document.createElement("style");
-  css.type = "text/css";
   css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
   document.body.appendChild(css);
 };
-// end type animation
+// end typing animation
