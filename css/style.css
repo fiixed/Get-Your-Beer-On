@@ -6,18 +6,16 @@ hr {
   border-top: 1px solid black;
 }
 
-
 /* scrolling background image */
 html {
   padding-left: 150px;
   padding-right: 150px;
   background: rgb(246, 174, 10) url(../images/beer-pinterest.jpg) repeat 0 0;
-	-webkit-animation: 20s linear 0s normal none infinite animate;
-	-moz-animation: 20s linear 0s normal none infinite animate;
-	-ms-animation: 20s linear 0s normal none infinite animate;
-	-o-animation: 20s linear 0s normal none infinite animate;
-	animation: 20s linear 0s normal none infinite animate;
- 
+  -webkit-animation: 20s linear 0s normal none infinite animate;
+  -moz-animation: 20s linear 0s normal none infinite animate;
+  -ms-animation: 20s linear 0s normal none infinite animate;
+  -o-animation: 20s linear 0s normal none infinite animate;
+  animation: 20s linear 0s normal none infinite animate;
 }
 @-webkit-keyframes animate {
   from {
@@ -61,7 +59,6 @@ html {
 }
 /* end scrolling background image */
 
-
 /* header style */
 #header {
   background-color: rgb(246, 174, 10);
@@ -75,13 +72,13 @@ html {
   justify-content: flex-end;
 }
 /* ==fade effect=== */
-.box-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.box-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 5%;
 }
-#box{
+#box {
   margin-right: 20px;
   padding: 2%;
   background-color: rgb(246, 174, 10);
@@ -89,17 +86,17 @@ html {
   border-radius: 5px;
   transition: 0.2s all;
 }
-.box-wrap:hover #box{
-  filter:blur(2px);
-  opacity:.5;
-  transform: scale(.98);
-  box-shadow:none;
+.box-wrap:hover #box {
+  filter: blur(2px);
+  opacity: 0.5;
+  transform: scale(0.98);
+  box-shadow: none;
 }
-.box-wrap:hover #box:hover{
-  transform:scale(1);
-  filter:blur(0px);
-  opacity:1;
-  box-shadow:0 8px 20px 0px rgba(0,0,0,0.50);
+.box-wrap:hover #box:hover {
+  transform: scale(1);
+  filter: blur(0px);
+  opacity: 1;
+  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.5);
 }
 /* ==end fade effect== */
 /* ==typing animation== */
@@ -108,13 +105,14 @@ html {
   font-weight: 200;
   margin: 0.4em 0;
 }
-#type { font-size: 1.5em; }
+#type {
+  font-size: 1.5em;
+}
 /* ===end typing animation=== */
 /* end header style */
 
-
 /* footer style */
-#footer{
+#footer {
   background-color: rgb(246, 174, 10);
   margin-bottom: -1%;
 }
@@ -136,7 +134,6 @@ html {
   padding-top: 15px;
 }
 /* end footer style */
-
 
 /* index main content */
 #home-main {
@@ -176,4 +173,10 @@ html {
 
 #underline {
   text-decoration: none;
+}
+
+#heading96 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
