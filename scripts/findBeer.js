@@ -99,7 +99,7 @@ let createBeerCard = (beer) => {
         sessionStorage.setItem("name", beer.fields.name_breweries);
         sessionStorage.setItem("lat", beer.fields.coordinates[0]);
         sessionStorage.setItem("lng", beer.fields.coordinates[1]);
-        window.open("map.html");
+        window.open("map.html", "_self");
     });
 };
 
