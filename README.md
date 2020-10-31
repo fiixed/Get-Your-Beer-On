@@ -1,6 +1,6 @@
 # Get Your Beer On
 
-(https://get-your-beer-on.herokuapp.com/)
+https://get-your-beer-on.herokuapp.com/
 
 Get Your Beer On is an online web application to for users looking for their next favorite brewery or beer.
 
