@@ -10,7 +10,7 @@ Our website allows users to easily locate breweries in their area or in a desire
 
 ## Scope of functionalities
 
-Our Map page leverages multiple APIs - Google Maps, Google Geocoding, Open Brewery DB - and allows users to locate breweries in close proximity to them using geolocation, or they can search by Zip Code, City, or State. After the breweries are pinned on the map, the user is able to filter them by Micro, Regional, Brewpub, Large, Planning, Bar, Contract, or Proprietor.
+Our Map page leverages multiple APIs - Google Maps, Google Geocoding, Open Brewery DB, Open Beer DB - and allows users to locate breweries in close proximity to them using geolocation, or they can search by Zip Code, City, or State. After the breweries are pinned on the map, the user is able to filter them by Micro, Regional, Brewpub, Large, Planning, Bar, Contract, or Proprietor.
 
 Our Find A Beer page allows users to search for beers by name. The results are returned from the Open Beer Database API. The results that are rendered to the screen for each beer includes detailed information such as the style of beer, the brewery of which it originated, the city & state if applicable, and the country of origin. Users are also able to filter their results by style and country. Clicking on a beer will bring the user to the Map page, where it will display the beer's brewery.
 
