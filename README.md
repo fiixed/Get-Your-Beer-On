@@ -24,7 +24,7 @@ Our Find A Beer page allows users to search for beers by name. The results are r
 
 ## Status
 
-Website is deployed and running stable.
+Website is deployed to Heroku and running stable.
 
 ## Contributors
 
