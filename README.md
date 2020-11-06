@@ -35,7 +35,7 @@ Website is deployed to Heroku and running stable.
 
 ## Future updates
 
-We are working on developing a backend so that users are able to leave reviews of breweries and beers.
+We are working on developing a backend so that users are able to leave reviews of breweries and beers. Stay Tuned!
 
 ## Contributing
 
